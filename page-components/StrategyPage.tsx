@@ -5,10 +5,10 @@ import { Layers, Search, Plus } from 'lucide-react';
 import { StrategyCard } from '@/components/strategy/StrategyCard';
 import { StrategyModal } from '@/components/strategy/StrategyModal';
 import { ShareStrategyDialog } from '@/components/strategy/ShareStrategyDialog';
-import { Toast } from '@/components/ui/Toast';
-import { Select } from '@/components/ui/Select';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import { Toast } from '@/components/ui/toast';
+import { Select } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { TagFilter } from '@/components/strategy/TagFilter';
 
 export default function StrategyPage() {

@@ -3,7 +3,7 @@ import type { Signal, UserParams, CandleStick } from '@/types';
 import { useExchangeWebSocket } from '@/hooks/useExchangeWebSocket';
 import { CheckCircle, Eye, Clock } from 'lucide-react';
 import { parseDurationToMillis } from '@/utils/date';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 interface SignalTrackerProps {
   signal: Signal;

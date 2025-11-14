@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import type { UserPost, UserProfile, Comment as CommentType } from '../../types';
 import { Comment } from './Comment';
-import { Textarea } from '../ui/Textarea';
-import { Button } from '../ui/Button';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 interface CommentSectionProps {
     post: UserPost;

@@ -8,7 +8,7 @@ import { PerformanceSnapshotWidget } from '@/components/dashboard/PerformanceSna
 import { LivePositionsWidget } from '@/components/dashboard/LivePositionsWidget';
 import { NewsWidget } from '@/components/dashboard/NewsWidget';
 import { HistoryWidget } from '@/components/dashboard/HistoryWidget';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Layout } from 'lucide-react';
 
 const WIDGET_MAP: Record<WidgetId, React.FC> = {

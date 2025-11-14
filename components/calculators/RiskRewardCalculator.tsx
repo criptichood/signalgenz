@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { Label } from '@/components/ui/Label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Select } from '@/components/ui/Select';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select } from '@/components/ui/select';
 import { TrendingUp, TrendingDown } from 'lucide-react';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { NumberInput } from '@/components/ui/number-input';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const formatDisplay = (value: number | undefined, decimals = 2) => {
   if (value === undefined || isNaN(value) || !isFinite(value)) return '-'

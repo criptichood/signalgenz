@@ -5,12 +5,12 @@ import { PostCard } from '@/components/profile/PostCard';
 import { CreatePostForm } from '@/components/profile/CreatePostForm';
 import { Layers, MessageSquare, Heart, Image as ImageIcon, ArrowLeft } from 'lucide-react';
 import { ProfileBanner } from '@/components/profile/ProfileBanner';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { EditProfileModal } from '@/components/profile/EditProfileModal';
 import { FollowListModal } from '@/components/profile/FollowListModal';
 import { useSocialStore } from '@/store/socialStore';
 import { useStore } from '@/store';
-import { Card } from '@/components/ui/Card';
+import { Card } from '@/components/ui/card';
 
 interface ProfilePageProps {
     onNavigateToProfile: (username: string) => void;

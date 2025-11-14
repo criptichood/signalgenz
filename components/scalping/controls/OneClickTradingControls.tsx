@@ -1,6 +1,6 @@
 import React from 'react';
-import { Label } from '@/components/ui/Label';
-import { Switch } from '@/components/ui/Switch';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
 import { ZapIcon } from '@/components/icons/ZapIcon';
 
 interface OneClickTradingControlsProps {

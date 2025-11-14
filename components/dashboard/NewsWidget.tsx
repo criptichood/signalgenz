@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useNewsStore } from '@/store/newsStore';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { formatDistanceToNow } from '@/utils/date';
 
 export const NewsWidget = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { LivePriceChart } from '@/components/chart/LivePriceChart';
 import { SignalCard } from '@/components/signal/SignalCard';
 import { HistoryTable } from '@/components/HistoryTable';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import { LayoutIcon } from '@/components/icons/LayoutIcon';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { ErrorMessage } from '@/components/ErrorMessage';

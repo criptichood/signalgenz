@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import type { UserProfile } from '../../types';
-import { Dialog } from '../ui/Dialog';
-import { Input } from '../ui/Input';
+import { Dialog } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 import { SearchIcon } from '../icons/SearchIcon';
 import { SendIcon } from '../icons/SendIcon';
-import { Button } from '../ui/Button';
+import { Button } from '@/components/ui/button';
 import { useSocialStore } from '../../store/socialStore';
 
 interface SharePostModalProps {

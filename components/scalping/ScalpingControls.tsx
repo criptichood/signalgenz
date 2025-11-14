@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import type { UserParams, AiModel } from '@/types';
 import { AI_MODELS } from '@/constants';
-import { Button } from '@/components/ui/Button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Zap, Loader2, X, Star } from 'lucide-react';
 import { PresetControls } from '@/components/controls/PresetControls';
 import { AutoExecutionControls } from '@/components/controls/AutoExecutionControls';

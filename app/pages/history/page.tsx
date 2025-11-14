@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const HistoryPage = dynamic(() => import('@/pages/HistoryPage'), {
+import dynamicImport from 'next/dynamic';
+
+const HistoryPage = dynamicImport(() => import('@/page-components/HistoryPage'), {
+  ssr: false,
   loading: () => <div className="flex items-center justify-center h-screen">Loading history...</div>
 });
 

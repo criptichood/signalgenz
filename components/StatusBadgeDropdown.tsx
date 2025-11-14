@@ -1,7 +1,7 @@
 import React from 'react';
 import type { SavedSignal } from '@/types';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
-import { Badge } from '@/components/ui/Badge';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
+import { Badge } from '@/components/ui/badge';
 import { CircleDashed, TrendingUp, TrendingDown, StopCircle } from 'lucide-react';
 
 

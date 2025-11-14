@@ -3,10 +3,10 @@
 import React from 'react';
 
 const alertVariants = {
-  default: 'bg-gray-800 border-gray-700 text-gray-300',
-  danger: 'bg-red-900/50 border-red-700 text-red-300',
+  default: 'bg-muted border-l border-border text-foreground',
+  danger: 'bg-destructive/10 border-l border-destructive text-destructive-foreground',
   // FIX: Added 'warning' variant to support its usage in other components.
-  warning: 'bg-yellow-900/50 border-yellow-700 text-yellow-300',
+  warning: 'bg-yellow-900/10 border-l border-yellow-700 text-yellow-500',
 };
 
 interface AlertProps {

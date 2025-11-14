@@ -1,56 +1,55 @@
-import React, { createContext, useContext } from 'react';
+"use client"
 
-interface TabsContextType {
-  activeTab: string;
-  setActiveTab: (value: string) => void;
-}
+import * as React from "react"
+import * as TabsPrimitive from "@radix-ui/react-tabs"
 
-const TabsContext = createContext<TabsContextType | null>(null);
+import { cn } from "@/lib/utils"
 
-export const Tabs = ({ value, onValueChange, children, className }: { value: string; onValueChange: (value: string) => void; children: React.ReactNode; className?: string }) => {
-  return (
-    <TabsContext.Provider value={{ activeTab: value, setActiveTab: onValueChange }}>
-      <div className={className}>{children}</div>
-    </TabsContext.Provider>
-  );
-};
+const Tabs = TabsPrimitive.Root
 
-export const TabsList = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <div className={`flex items-center rounded-lg bg-gray-900 p-1 ${className}`}>
-    {children}
-  </div>
-);
+const TabsList = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.List>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.List
+    ref={ref}
+    className={cn(
+      "inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground",
+      className
+    )}
+    {...props}
+  />
+))
+TabsList.displayName = TabsPrimitive.List.displayName
 
-export const TabsTrigger = ({ value, children, disabled }: { value: string; children: React.ReactNode; disabled?: boolean }) => {
-  const context = useContext(TabsContext);
-  if (!context) throw new Error('TabsTrigger must be used within a Tabs component');
-  
-  const isActive = context.activeTab === value;
+const TabsTrigger = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm",
+      className
+    )}
+    {...props}
+  />
+))
+TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
-  return (
-    <button
-      onClick={() => !disabled && context.setActiveTab(value)}
-      disabled={disabled}
-      className={`flex-1 whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-all flex items-center justify-center
-        ${isActive ? 'bg-cyan-500/20 text-cyan-300 shadow-sm' : 'text-gray-400 hover:bg-gray-700 hover:text-white'}
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900
-        disabled:opacity-50 disabled:cursor-not-allowed
-      `}
-    >
-      {children}
-    </button>
-  );
-};
+const TabsContent = React.forwardRef<
+  React.ElementRef<typeof TabsPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Content
+    ref={ref}
+    className={cn(
+      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      className
+    )}
+    {...props}
+  />
+))
+TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export const TabsContent = ({ value, children, className }: { value: string; children: React.ReactNode; className?: string }) => {
-  const context = useContext(TabsContext);
-  if (!context) throw new Error('TabsContent must be used within a Tabs component');
-  
-  const isActive = context.activeTab === value;
-
-  return isActive ? (
-    <div className={className}>
-      {children}
-    </div>
-  ) : null;
-};
+export { Tabs, TabsList, TabsTrigger, TabsContent }

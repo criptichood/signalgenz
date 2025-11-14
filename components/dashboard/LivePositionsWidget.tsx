@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useScalpingStore } from '@/store/scalpingStore';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export const LivePositionsWidget = () => {
     const { livePositions } = useScalpingStore();

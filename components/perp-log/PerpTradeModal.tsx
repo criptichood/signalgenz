@@ -3,15 +3,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import type { PerpTrade } from '@/types';
-import { Dialog } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
-import { Select } from '@/components/ui/Select';
-import { Input } from '@/components/ui/Input';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Button } from '@/components/ui/Button';
-import { Combobox } from '@/components/ui/Combobox';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Select } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
+import { NumberInput } from '@/components/ui/number-input';
+import { Button } from '@/components/ui/button';
+import { Combobox } from '@/components/ui/combobox';
 import { Loader2 } from 'lucide-react';
-import { RichTextEditor } from '@/components/ui/RichTextEditor';
+import { RichTextEditor } from '@/components/ui/rich-text-editor';
 import { useSocialStore } from '@/store/socialStore';
 
 interface PerpTradeModalProps {

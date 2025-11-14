@@ -1,17 +1,17 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import type { MemeCoin } from '@/types';
-import { Card, CardContent, CardHeader } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Label } from '@/components/ui/Label';
-import { Select } from '@/components/ui/Select';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { NumberInput } from '@/components/ui/number-input';
+import { Label } from '@/components/ui/label';
+import { Select } from '@/components/ui/select';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { AlertTriangleIcon } from '@/components/icons/AlertTriangleIcon';
 import { LockIcon } from '@/components/icons/LockIcon';
 import { FileCheckIcon } from '@/components/icons/FileCheckIcon';
 import { UsersIcon } from '@/components/icons/UsersIcon';
 import { ExternalLink } from 'lucide-react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 
 interface MemeCoinDetailViewProps {

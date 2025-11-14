@@ -3,14 +3,14 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import type { SavedSignal } from '@/types';
 import { formatDistanceToNow, parseDurationToMillis } from '@/utils/date';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/Table';
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Select } from '@/components/ui/Select';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
-import { AlertDialog } from '@/components/ui/AlertDialog';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Select } from '@/components/ui/select';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 import { StatusBadgeDropdown } from '@/components/StatusBadgeDropdown';
 import { MoreHorizontal, Trash2, TrendingUp, ChevronsUpDown, ArrowRight, ArrowUp, ArrowDown, Search, TestTube2, Eye } from 'lucide-react';
 

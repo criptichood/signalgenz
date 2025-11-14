@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { Page, Notification, UserProfile } from '../../types';
 import { formatDistanceToNow } from '../../utils/date';
 import { MailIcon } from '../icons/MailIcon';

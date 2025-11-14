@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from 'react';
 import type { Signal, UserParams } from '@/types';
-import { Dialog } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Button } from '@/components/ui/Button';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { NumberInput } from '@/components/ui/number-input';
+import { Button } from '@/components/ui/button';
 
 interface PLForecasterModalProps {
     isOpen: boolean;

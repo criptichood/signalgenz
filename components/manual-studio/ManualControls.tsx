@@ -1,15 +1,15 @@
 import React, { useMemo } from 'react';
 import type { Signal, Exchange, Timeframe } from '@/types';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
-import { Label } from '@/components/ui/Label';
-import { Select } from '@/components/ui/Select';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Button } from '@/components/ui/Button';
-import { Combobox } from '@/components/ui/Combobox';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Select } from '@/components/ui/select';
+import { NumberInput } from '@/components/ui/number-input';
+import { Button } from '@/components/ui/button';
+import { Combobox } from '@/components/ui/combobox';
 import { PencilIcon } from '@/components/icons/PencilIcon';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';
-import { Textarea } from '../ui/Textarea';
+import { Textarea } from '@/components/ui/textarea';
 
 const allTimeframes: { value: Timeframe, label: string }[] = [
     '1m','3m','5m','15m','30m','1h','2h','4h','1d','1w'

@@ -4,10 +4,10 @@ import type { SpotTrade } from '@/types';
 import * as exchangeService from '@/services/exchangeService';
 import { SpotTradeTable } from '@/components/spot-log/SpotTradeTable';
 import { SpotTradeModal } from '@/components/spot-log/SpotTradeModal';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Upload, Download, Plus } from 'lucide-react';
 import { ErrorMessage } from '@/components/ErrorMessage';
-import { AlertDialog } from '@/components/ui/AlertDialog';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 import { SpotStatsCards } from '@/components/spot-log/SpotStatsCards';
 
 export default function SpotLogPage() {

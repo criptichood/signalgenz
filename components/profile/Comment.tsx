@@ -4,8 +4,8 @@ import { formatDistanceToNow } from '../../utils/date';
 import { HeartIcon } from '../icons/HeartIcon';
 import { MessageCircleIcon } from '../icons/MessageCircleIcon';
 import { ThreadConnector } from './ThreadConnector';
-import { Textarea } from '../ui/Textarea';
-import { Button } from '../ui/Button';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 interface CommentProps {
     comment: CommentType;

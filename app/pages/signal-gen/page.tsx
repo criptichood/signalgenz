@@ -1,7 +1,13 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useEffect } from 'react';
-import SignalGenPage from '@/pages/SignalGenPage';
+import dynamicImport from 'next/dynamic';
+
+const SignalGenPageComponent = dynamicImport(() => import('@/page-components/SignalGenPage'), {
+  ssr: false,
+});
 
 export default function SignalGenRoute({
   bybitApiKey,
@@ -22,7 +28,7 @@ export default function SignalGenRoute({
   }
 
   return (
-    <SignalGenPage
+    <SignalGenPageComponent
       bybitApiKey={bybitApiKey}
       bybitApiSecret={bybitApiSecret}
       controller={signalGenerator.signalGenController}

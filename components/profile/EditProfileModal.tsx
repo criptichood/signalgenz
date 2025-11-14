@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import type { UserProfile } from '../../types';
-import { Dialog } from '../ui/Dialog';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
-import { Textarea } from '../ui/Textarea';
-import { Button } from '../ui/Button';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 import { Loader2Icon } from '../icons/Loader2Icon';
 import { CameraIcon } from '../icons/CameraIcon';
 

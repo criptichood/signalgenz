@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistoryStore } from '@/store/historyStore';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import { StatCard } from '@/components/analytics/StatCard';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { AnalyticsIcon } from '@/components/icons/AnalyticsIcon';
 import { ChartIcon } from '@/components/icons/ChartIcon';
 const formatCurrency = (value: number) => value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });

@@ -18,13 +18,13 @@ import { PencilIcon } from '@/components/icons/PencilIcon';
 import { Trash2Icon } from '@/components/icons/Trash2Icon';
 import { CopyIcon } from '@/components/icons/CopyIcon';
 import { CheckIcon } from '@/components/icons/CheckIcon';
-import { AlertDialog } from '@/components/ui/AlertDialog';
-import { Textarea } from '@/components/ui/Textarea';
-import { Button } from '@/components/ui/Button';
+import { AlertDialog } from '@/components/ui/alert-dialog-wrapper';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 import { SparklesIcon } from '@/components/icons/SparklesIcon';
 import { LightbulbIcon } from '@/components/icons/LightbulbIcon';
 import { MessageSquareIcon } from '@/components/icons/MessageSquareIcon';
-import { DropdownMenu, DropdownMenuItem } from '@/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuItem } from '@/components/ui/dropdown-menu';
 import { MoreHorizontalIcon } from '@/components/icons/MoreHorizontalIcon';
 import { UserIcon } from '@/components/icons/UserIcon';
 

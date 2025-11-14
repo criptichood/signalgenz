@@ -2,98 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+    --success: 142 76% 36%; /* green-600 equivalent */
+    --error: 0 72% 51%; /* red-500 equivalent */
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --success: 142 76% 36%;
+    --error: 0 72% 51%;
+  }
+
+  /* Add accent color variations */
+  [data-theme="dark-cyan"] {
+    --primary: 191 97% 65%; /* cyan-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+
+  [data-theme="dark-red"] {
+    --primary: 348 83% 66%; /* red-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+
+  [data-theme="dark-green"] {
+    --primary: 142 71% 65%; /* green-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+
+  [data-theme="dark-blue"] {
+    --primary: 221 83% 68%; /* blue-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+
+  [data-theme="dark-purple"] {
+    --primary: 262 83% 67%; /* purple-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+
+  [data-theme="dark-orange"] {
+    --primary: 24 92% 65%; /* orange-400 equivalent */
+    --primary-foreground: 0 0% 98%;
+  }
+}
+
 /* Custom dark scrollbar for a consistent theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #1f2937; /* bg-gray-800 */
+  background: hsl(var(--muted));
 }
 ::-webkit-scrollbar-thumb {
-  background: #4b5563; /* bg-gray-600 */
+  background: hsl(var(--border));
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280; /* bg-gray-500 */
-}
-
-/* Animation for loading text */
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateY(10px); }
-  15% { opacity: 1; transform: translateY(0); }
-  85% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(-10px); }
-}
-.animate-fade-in-out {
-  animation: fadeInOut 3s ease-in-out infinite;
-}
-
-/* Animation for new signal card glow */
-@keyframes card-glow-green {
-  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); border-color: #374151; }
-  50% { box-shadow: 0 0 12px 2px rgba(34, 197, 94, 0.5); border-color: #22c55e; }
-  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); border-color: #374151; }
-}
-
-@keyframes card-glow-red {
-  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); border-color: #374151; }
-  50% { box-shadow: 0 0 12px 2px rgba(239, 68, 68, 0.5); border-color: #ef4444; }
-  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); border-color: #374151; }
-}
-
-.animate-glow-green {
-  animation: card-glow-green 2.5s ease-out;
-}
-.animate-glow-red {
-  animation: card-glow-red 2.5s ease-out;
-}
-
-/* Animation for toast notifications */
-@keyframes toast-in-right {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-.animate-toast-in-right {
-  animation: toast-in-right 0.5s ease-out forwards;
-}
-
-/* Animation for cycling suggestions */
-@keyframes suggestion-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-suggestion-in {
-  animation: suggestion-in 0.3s ease-out forwards;
-}
-
-@keyframes suggestion-out {
-  from { opacity: 1; transform: translateY(0); }
-  to { opacity: 0; transform: translateY(-10px); }
-}
-.animate-suggestion-out {
-  animation: suggestion-out 0.3s ease-in forwards;
-}
-
-/* Animation for expanding form */
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in-down {
-  animation: fadeInDown 0.3s ease-out forwards;
+  background: hsl(var(--muted-foreground));
 }
 
 /* --- THEME TRANSITION --- */

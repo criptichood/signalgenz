@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import type { UserProfile, UserPost, SavedSignal, TradeIdea, AIFeedback } from '../../types';
-import { Card } from '../ui/Card';
-import { Textarea } from '../ui/Textarea';
-import { Button } from '../ui/Button';
+import { Card } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 import { SendIcon } from '../icons/SendIcon';
 import { ImageSquareIcon } from '../icons/ImageSquareIcon';
-import { Input } from '../ui/Input';
+import { Input } from '@/components/ui/input';
 import { extractLinks } from '../../utils/links';
 import { LinkPreview } from './LinkPreview';
 import { CloseIcon } from '../icons/CloseIcon';

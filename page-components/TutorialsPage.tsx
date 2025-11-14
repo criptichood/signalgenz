@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Book, ChevronsUpDown } from 'lucide-react';
 import { FormattedReasoning } from '@/components/FormattedReasoning';
 import { tutorialsData } from '@/data/tutorialData';

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { UserParams } from '@/types';
-import { Accordion } from '@/components/ui/Accordion';
-import { Select } from '@/components/ui/Select';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Switch } from '@/components/ui/Switch';
-import { Label } from '@/components/ui/Label';
+import { Accordion } from '@/components/ui/accordion';
+import { Select } from '@/components/ui/select';
+import { NumberInput } from '@/components/ui/number-input';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 import { SlidersHorizontalIcon } from '@/components/icons/SlidersHorizontalIcon';
 
 interface AdvancedParamsProps {

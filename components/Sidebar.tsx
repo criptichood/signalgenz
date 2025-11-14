@@ -10,6 +10,7 @@ import {
     TrendingUp, Zap, Newspaper, History, TestTube2, BarChartBig, Calculator, Book, FileText, Shield, Layers, User,
     Bot, Settings, Sparkles, Lightbulb, MessageSquare, Compass, Mail, Home, ScanLine, LogOut, Pencil, Flame
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 
 interface NavLinkProps {
@@ -24,22 +25,19 @@ interface NavLinkProps {
 const NavLink = ({ icon, label, page, currentPage, onClick, badgeCount }: NavLinkProps) => {
   const isActive = currentPage === page;
   return (
-    <button
+    <Button
+      variant={isActive ? "secondary" : "ghost"}
+      className={`w-full justify-start ${isActive ? 'text-primary' : ''}`}
       onClick={() => onClick(page)}
-      className={`relative flex items-center w-full px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 ${
-        isActive
-          ? 'bg-cyan-500/20 text-cyan-300'
-          : 'text-gray-400 hover:bg-gray-700 hover:text-gray-200'
-      }`}
     >
-      <span className="mr-3">{icon}</span>
-      {label}
+      {icon}
+      <span className="ml-3">{label}</span>
       {badgeCount && badgeCount > 0 && (
-        <span className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-xs font-bold text-white">
+        <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
             {badgeCount > 9 ? '9+' : badgeCount}
         </span>
       )}
-    </button>
+    </Button>
   );
 };
 
@@ -56,13 +54,13 @@ const ChatIcon = ({ icon, className }: { icon: ChatIconType; className: string }
 
 
 export const Sidebar = () => {
-    const { 
+    const {
         currentPage, setCurrentPage, isSidebarOpen, setIsSidebarOpen,
         setIsChatOpen, chatIcon, logout
     } = useStore();
     const { conversations, users, setViewingProfileUsername } = useSocialStore();
     const currentUser = useMemo(() => users?.find(u => u.username === 'CryptoTrader123'), [users]);
-    
+
     const unreadMessagesCount = useMemo(() => {
         if (!currentUser) return 0;
         return conversations.reduce((count, convo) => {
@@ -72,7 +70,7 @@ export const Sidebar = () => {
             return count;
         }, 0);
     }, [conversations, currentUser]);
-    
+
     const handleNavigation = (page: Page) => {
         if (page === 'profile') {
             setViewingProfileUsername(null);
@@ -82,7 +80,7 @@ export const Sidebar = () => {
             setIsSidebarOpen(false);
         }
     };
-    
+
     const handleOpenChat = () => {
         setIsChatOpen(true);
         if (window.innerWidth < 1024) {
@@ -93,22 +91,22 @@ export const Sidebar = () => {
   return (
     <>
         {/* Overlay for mobile */}
-        <div 
+        <div
             className={`fixed inset-0 bg-black/60 z-30 lg:hidden transition-opacity ${isSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
             onClick={() => setIsSidebarOpen(false)}
         ></div>
 
-        <aside className={`bg-gray-800 border-r border-gray-700 w-64 flex-shrink-0 transform transition-transform duration-300 ease-in-out z-40 fixed inset-y-0 left-0 flex flex-col lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-            <div className="flex items-center justify-center h-16 border-b border-gray-700 flex-shrink-0">
+        <aside className={`bg-background border-r border-border w-64 flex-shrink-0 transform transition-transform duration-300 ease-in-out z-40 fixed inset-y-0 left-0 flex flex-col lg:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className="flex items-center justify-center h-16 border-b border-border flex-shrink-0">
                 <div className="flex items-center gap-3">
-                    <TrendingUp className="w-8 h-8 text-cyan-400" />
-                    <h1 className="text-xl font-bold text-white tracking-wider">
-                        Signal <span className="text-cyan-400">Gen</span>
+                    <TrendingUp className="w-8 h-8 text-primary" />
+                    <h1 className="text-xl font-bold tracking-wider">
+                        Signal <span className="text-primary">Gen</span>
                     </h1>
                 </div>
             </div>
             <nav className="flex-1 overflow-y-auto p-4 space-y-1">
-                <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Analysis</h3>
+                <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Analysis</h3>
                 <NavLink icon={<Home className="w-5 h-5" />} label="Dashboard" page="dashboard" currentPage={currentPage} onClick={handleNavigation} />
                 <NavLink icon={<TrendingUp className="w-5 h-5" />} label="Signal Gen" page="signal-gen" currentPage={currentPage} onClick={handleNavigation} />
                 <NavLink icon={<Zap className="w-5 h-5" />} label="Scalping" page="scalping" currentPage={currentPage} onClick={handleNavigation} />
@@ -118,26 +116,27 @@ export const Sidebar = () => {
                 <NavLink icon={<Newspaper className="w-5 h-5" />} label="News" page="news" currentPage={currentPage} onClick={handleNavigation} />
                 <NavLink icon={<History className="w-5 h-5" />} label="AI Signal History" page="history" currentPage={currentPage} onClick={handleNavigation} />
                 <NavLink icon={<TestTube2 className="w-5 h-5" />} label="Simulation" page="simulation" currentPage={currentPage} onClick={handleNavigation} />
-                
+
                  <div className="pt-2">
-                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Assistant</h3>
-                     <button
+                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Assistant</h3>
+                     <Button
+                        variant="ghost"
+                        className="w-full justify-start"
                         onClick={handleOpenChat}
-                        className="flex items-center w-full px-4 py-3 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-400 hover:bg-gray-700 hover:text-gray-200"
                     >
                         <ChatIcon icon={chatIcon} className="w-5 h-5 mr-3" />
                         AI Assistant
-                    </button>
+                    </Button>
                 </div>
-                
+
                 <div className="pt-2">
-                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Logs</h3>
+                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Logs</h3>
                     <NavLink icon={<FileText className="w-5 h-5" />} label="Spot Log" page="spot-log" currentPage={currentPage} onClick={handleNavigation} />
                     <NavLink icon={<FileText className="w-5 h-5" />} label="Perp Log" page="perp-log" currentPage={currentPage} onClick={handleNavigation} />
                 </div>
-                
+
                 <div className="pt-2">
-                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Social</h3>
+                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Social</h3>
                     <NavLink icon={<Compass className="w-5 h-5" />} label="Discover" page="discover" currentPage={currentPage} onClick={handleNavigation} />
                     <NavLink icon={<Mail className="w-5 h-5" />} label="Messages" page="messages" currentPage={currentPage} onClick={handleNavigation} badgeCount={unreadMessagesCount}/>
                     <NavLink icon={<Layers className="w-5 h-5" />} label="Strategies" page="strategies" currentPage={currentPage} onClick={handleNavigation} />
@@ -145,7 +144,7 @@ export const Sidebar = () => {
                 </div>
 
                 <div className="pt-2">
-                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tools</h3>
+                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Tools</h3>
                     <NavLink icon={<BarChartBig className="w-5 h-5" />} label="Analytics" page="analytics" currentPage={currentPage} onClick={handleNavigation} />
                     <NavLink icon={<Calculator className="w-5 h-5" />} label="Calculator" page="calculator" currentPage={currentPage} onClick={handleNavigation} />
                     <NavLink icon={<Shield className="w-5 h-5" />} label="Stablecoin Stash" page="stablecoin-stash" currentPage={currentPage} onClick={handleNavigation} />
@@ -153,15 +152,16 @@ export const Sidebar = () => {
                 </div>
 
                 <div className="pt-2">
-                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">System</h3>
+                    <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">System</h3>
                     <NavLink icon={<Settings className="w-5 h-5" />} label="Settings" page="settings" currentPage={currentPage} onClick={handleNavigation} />
-                    <button
+                    <Button
+                        variant="ghost"
+                        className="w-full justify-start"
                         onClick={logout}
-                        className="flex items-center w-full px-4 py-3 text-sm font-medium rounded-lg text-gray-400 hover:bg-gray-700 hover:text-gray-200"
                     >
                         <LogOut className="w-5 h-5 mr-3" />
                         Logout
-                    </button>
+                    </Button>
                 </div>
             </nav>
         </aside>

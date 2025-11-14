@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const MessagesPage = dynamic(() => import('@/pages/MessagesPage'), {
+import dynamicImport from 'next/dynamic';
+
+const MessagesPage = dynamicImport(() => import('@/page-components/MessagesPage'), {
+  ssr: false,
   loading: () => <div className="flex items-center justify-center h-screen">Loading messages...</div>
 });
 

@@ -76,10 +76,10 @@ USER QUESTION:
     // Check if there are function calls in the response
     const functionCalls = response.functionCalls || [];
 
-    if (functionCalls.length > 0) {
-      // Process function calls
-      const processedFunctionResults: Array<{ name: string, response: any }> = [];
+    // Process function calls
+    const processedFunctionResults: Array<{ name: string, response: any }> = [];
 
+    if (functionCalls.length > 0) {
       for (const fc of functionCalls) {
         let result;
 
@@ -146,7 +146,7 @@ USER QUESTION:
         }
 
         processedFunctionResults.push({
-          name: fc.name,
+          name: fc.name || 'unknown',
           response: result
         });
       }

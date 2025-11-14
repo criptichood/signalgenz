@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Dialog } from '../ui/Dialog';
-import { Button } from '../ui/Button';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
+import { Dialog } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 interface AddWalletModalProps {
     isOpen: boolean;

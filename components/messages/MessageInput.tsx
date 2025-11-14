@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Textarea } from '../ui/Textarea';
+import { Textarea } from '@/components/ui/textarea';
 import { PaperAirplaneIcon } from '../icons/PaperAirplaneIcon';
 
 interface MessageInputProps {

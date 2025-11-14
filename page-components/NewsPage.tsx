@@ -2,9 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNewsStore } from '@/store/newsStore';
 import type { NewsArticle } from '@/types';
 import { NewsCard } from '@/components/NewsCard';
-import { Input } from '@/components/ui/Input';
+import { Input } from '@/components/ui/input';
 import { Search, Newspaper, Loader2 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export default function NewsPage() {
   const { 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/Card';
+import { Card, CardContent } from '@/components/ui/card';
 import { TestTube2 } from 'lucide-react';
 
 export const SimulationEmptyState = () => (

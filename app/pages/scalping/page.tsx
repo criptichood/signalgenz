@@ -1,6 +1,12 @@
 'use client';
 
-import ScalpingPage from '@/pages/ScalpingPage';
+export const dynamic = 'force-dynamic';
+
+import dynamicImport from 'next/dynamic';
+
+const ScalpingPageComponent = dynamicImport(() => import('@/page-components/ScalpingPage'), {
+  ssr: false,
+});
 
 export default function ScalpingRoute({ 
   bybitApiKey, 
@@ -18,7 +24,7 @@ export default function ScalpingRoute({
   }
 
   return (
-    <ScalpingPage 
+    <ScalpingPageComponent 
       bybitApiKey={bybitApiKey} 
       bybitApiSecret={bybitApiSecret} 
       controller={signalGenerator.scalpController}

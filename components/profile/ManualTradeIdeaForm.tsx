@@ -1,12 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import type { TradeIdea, Timeframe } from '../../types';
 import { useScalpingStore } from '../../store/scalpingStore';
-import { Card } from '../ui/Card';
-import { Label } from '../ui/Label';
-import { Input } from '../ui/Input';
-import { Select } from '../ui/Select';
-import { Button } from '../ui/Button';
-import { NumberInput } from '../ui/NumberInput';
+import { Card } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Select } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { NumberInput } from '@/components/ui/number-input';
 
 interface ManualTradeIdeaFormProps {
     onClose: () => void;

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { CloseIcon } from '@/components/icons/CloseIcon';
-import { WindowMinimizeIcon } from '@/components/icons/WindowMinimizeIcon';
-import { WindowMaximizeIcon } from '@/components/icons/WindowMaximizeIcon';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Minus, Maximize2, X } from 'lucide-react';
 
 interface FloatingCardProps {
   title: string;
@@ -75,9 +75,9 @@ export const FloatingCard = ({
   }
 
   return (
-    <div
+    <Card
       ref={cardRef}
-      className={`fixed bg-gray-800/80 backdrop-blur-md border border-gray-700/70 shadow-2xl rounded-lg flex flex-col z-40 ${className}`}
+      className={`fixed bg-background/80 backdrop-blur-md border border-border shadow-2xl rounded-lg flex flex-col z-40 ${className}`}
       style={{
         width: `${initialWidth}px`,
         top: `${position.y}px`,
@@ -85,31 +85,35 @@ export const FloatingCard = ({
         transform: `translate(0, 0)`, // Use top/left for positioning
       }}
     >
-      <header
+      <CardHeader
         onMouseDown={handleMouseDown}
-        className="flex items-center justify-between p-2 border-b border-gray-700/50 cursor-move"
+        className="flex flex-row items-center justify-between p-3 border-b border-border cursor-move rounded-t-lg"
       >
         <h3 className="text-sm font-bold pl-1 select-none">{title}</h3>
-        <div className="flex items-center">
-            <button
-              onClick={onToggleMinimize}
-              className="p-1 rounded-full text-gray-400 hover:bg-gray-700 hover:text-white"
-              aria-label={isMinimized ? 'Maximize' : 'Minimize'}
-            >
-                {isMinimized ? <WindowMaximizeIcon className="w-4 h-4"/> : <WindowMinimizeIcon className="w-4 h-4" />}
-            </button>
-            <button
-              onClick={onClose}
-              className="p-1 rounded-full text-gray-400 hover:bg-gray-700 hover:text-white"
-              aria-label="Close"
-            >
-                <CloseIcon className="w-4 h-4" />
-            </button>
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={onToggleMinimize}
+            variant="ghost"
+            size="icon"
+            className="h-6 w-6"
+            aria-label={isMinimized ? 'Maximize' : 'Minimize'}
+          >
+            {isMinimized ? <Maximize2 className="h-4 w-4"/> : <Minus className="h-4 w-4" />}
+          </Button>
+          <Button
+            onClick={onClose}
+            variant="ghost"
+            size="icon"
+            className="h-6 w-6"
+            aria-label="Close"
+          >
+            <X className="h-4 w-4" />
+          </Button>
         </div>
-      </header>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isMinimized ? 'h-0' : 'h-[420px]'}`}>
+      </CardHeader>
+      <CardContent className={`overflow-hidden transition-all duration-300 ease-in-out p-0 ${isMinimized ? 'h-0' : 'h-[420px]'}`}>
         {children}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 };

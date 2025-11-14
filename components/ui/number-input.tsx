@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from './Input';
+import { Input } from './input';
 import { Plus, Minus } from 'lucide-react';
 
 interface NumberInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'type'> {
@@ -28,23 +28,23 @@ export const NumberInput = ({
         disabled={disabled}
         {...props}
       />
-      <div className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center bg-gray-700/80 rounded-md border border-gray-600">
+      <div className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center bg-secondary/80 rounded-md border border-border">
         <button
           type="button"
           onClick={onDecrement}
           tabIndex={-1}
-          className="p-1.5 text-gray-400 hover:text-white transition-colors rounded-l-md hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-l-md hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Decrement"
           disabled={disabled || !onDecrement}
         >
           <Minus className="w-4 h-4" />
         </button>
-        <div className="w-px h-4 bg-gray-500"></div>
+        <div className="w-px h-4 bg-border"></div>
         <button
           type="button"
           onClick={onIncrement}
           tabIndex={-1}
-          className="p-1.5 text-gray-400 hover:text-white transition-colors rounded-r-md hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="p-1.5 text-muted-foreground hover:text-foreground transition-colors rounded-r-md hover:bg-accent disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Increment"
           disabled={disabled || !onIncrement}
         >

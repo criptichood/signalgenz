@@ -1,8 +1,8 @@
 import React from 'react';
 import type { SimulationSetup } from '@/types';
 import type { useSimulation } from '@/hooks/useSimulation';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { PlayIcon } from '@/components/icons/PlayIcon';
 import { PauseIcon } from '@/components/icons/PauseIcon';
 import { RestartIcon } from '@/components/icons/RestartIcon';

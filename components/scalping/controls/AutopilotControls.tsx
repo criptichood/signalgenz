@@ -1,10 +1,10 @@
 import React from 'react';
 import type { AutopilotState, AutopilotSettings, AutopilotSessionStats, AutopilotScanMode } from '@/types';
-import { Label } from '@/components/ui/Label';
-import { Select } from '@/components/ui/Select';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Accordion } from '@/components/ui/Accordion';
-import { Button } from '@/components/ui/Button';
+import { Label } from '@/components/ui/label';
+import { Select } from '@/components/ui/select';
+import { NumberInput } from '@/components/ui/number-input';
+import { Accordion } from '@/components/ui/accordion';
+import { Button } from '@/components/ui/button';
 import { PlayCircleIcon } from '@/components/icons/PlayCircleIcon';
 import { StopCircleIcon } from '@/components/icons/StopCircleIcon';
 import { SlidersHorizontalIcon } from '@/components/icons/SlidersHorizontalIcon';

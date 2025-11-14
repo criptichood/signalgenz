@@ -55,7 +55,7 @@ export const ModelCombobox = ({ models, value, onSelect, disabled }: ModelCombob
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         disabled={disabled}
-        className="w-full flex justify-between items-center bg-gray-900 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full flex justify-between items-center bg-background border border-input rounded-md shadow-sm py-2 px-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span className="truncate">{selectedModelName}</span>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -67,29 +67,29 @@ export const ModelCombobox = ({ models, value, onSelect, disabled }: ModelCombob
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 top-full mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg">
+        <div className="absolute z-10 top-full mt-1 w-full bg-popover border border-border rounded-md shadow-lg">
           <ul className="max-h-60 overflow-y-auto p-1">
             {modelGroups.map(group => (
               group.items.length > 0 && (
                 <React.Fragment key={group.title}>
-                  <li className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase">{group.title}</li>
+                  <li className="px-3 py-1 text-xs font-semibold text-muted-foreground uppercase">{group.title}</li>
                   {group.items.map(model => (
                     <li
                       key={model.id}
                       onClick={() => handleSelect(model.id)}
-                      className="flex items-center justify-between px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 cursor-pointer group rounded-md"
+                      className="flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-accent cursor-pointer group rounded-md"
                     >
                       <span>{model.name}</span>
                       <div className="flex items-center gap-2">
                         <button
                           type="button"
                           onClick={(e) => toggleFavorite(e, model.id)}
-                          className={`p-1 rounded-full ${favoriteModels.includes(model.id) ? 'text-yellow-300' : 'text-gray-500 opacity-50 group-hover:opacity-100'} hover:text-yellow-300 transition-opacity`}
+                          className={`p-1 rounded-full ${favoriteModels.includes(model.id) ? 'text-yellow-300' : 'text-muted-foreground opacity-50 group-hover:opacity-100'} hover:text-yellow-300 transition-opacity`}
                           aria-label={`Favorite ${model.name}`}
                         >
                           <Star fill={favoriteModels.includes(model.id) ? "currentColor" : "none"} className="w-4 h-4" />
                         </button>
-                        {value === model.id && <Check className="h-4 w-4 text-cyan-400" />}
+                        {value === model.id && <Check className="h-4 w-4 text-primary" />}
                       </div>
                     </li>
                   ))}

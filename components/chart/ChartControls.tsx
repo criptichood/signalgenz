@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
-import { Button } from '@/components/ui/Button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 import { LayersIcon } from '@/components/icons/LayersIcon';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import { AreaChartIcon } from '@/components/icons/AreaChartIcon';
@@ -44,11 +43,14 @@ export const ChartControls = ({
     <div className="flex flex-wrap items-center justify-end gap-4">
         <div className="flex items-center gap-1 rounded-lg bg-gray-900 p-1">
             {timeRanges.map(tr => (
-                <Tooltip key={tr.value} content={`Set time range to ${tr.label}`}>
-                    <button onClick={() => setTimeRange(tr.value)} className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors ${timeRange === tr.value ? 'bg-cyan-600 text-white shadow-sm' : 'text-gray-400 hover:bg-gray-700'}`}>
+                <button
+                    key={tr.value}
+                    onClick={() => setTimeRange(tr.value)}
+                    className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors ${timeRange === tr.value ? 'bg-cyan-600 text-white shadow-sm' : 'text-gray-400 hover:bg-gray-700'}`}
+                    title={`Set time range to ${tr.label}`}
+                >
                     {tr.label}
-                    </button>
-                </Tooltip>
+                </button>
             ))}
         </div>
 
@@ -77,11 +79,14 @@ export const ChartControls = ({
 
         <div className="flex items-center gap-1 rounded-lg bg-gray-700 p-1">
             {chartTypes.map(ct => (
-                <Tooltip key={ct.type} content={`${ct.type} Chart`}>
-                    <button onClick={() => setChartType(ct.type)} title={ct.type} className={`p-2 rounded-md transition-colors ${chartType === ct.type ? 'bg-cyan-600 text-white shadow-md' : 'text-gray-300 hover:bg-gray-600'}`}>
+                <button
+                    key={ct.type}
+                    onClick={() => setChartType(ct.type)}
+                    title={`${ct.type} Chart`}
+                    className={`p-2 rounded-md transition-colors ${chartType === ct.type ? 'bg-cyan-600 text-white shadow-md' : 'text-gray-300 hover:bg-gray-600'}`}
+                >
                     {ct.icon}
-                    </button>
-                </Tooltip>
+                </button>
             ))}
         </div>
     </div>

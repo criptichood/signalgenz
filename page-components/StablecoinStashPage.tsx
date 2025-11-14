@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import type { TrackedWallet, StablecoinHolding } from '@/types';
 import { useStablecoinStore } from '@/store/stablecoinStore';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { StatCard } from '@/components/analytics/StatCard';
 import { AddWalletModal } from '@/components/stablecoin/AddWalletModal';
 import { WalletListItem } from '@/components/stablecoin/WalletListItem';
@@ -12,7 +12,7 @@ import { DollarSignIcon } from '@/components/icons/DollarSignIcon';
 import { WalletIcon } from '@/components/icons/WalletIcon';
 import { PieChartIcon } from '@/components/icons/PieChartIcon';
 import { SafeIcon } from '@/components/icons/SafeIcon';
-import { AlertDialog } from '@/components/ui/AlertDialog';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 
 export default function StablecoinStashPage() {
     const {

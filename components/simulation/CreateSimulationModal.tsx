@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import type { SimulationSetup, Exchange } from '@/types';
-import { Dialog } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Select } from '@/components/ui/Select';
-import { Button } from '@/components/ui/Button';
-import { Combobox } from '@/components/ui/Combobox';
-import { Input } from '@/components/ui/Input';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { NumberInput } from '@/components/ui/number-input';
+import { Select } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Combobox } from '@/components/ui/combobox';
+import { Input } from '@/components/ui/input';
 import { PlayIcon } from '@/components/icons/PlayIcon';
 import { SaveIcon } from '@/components/icons/SaveIcon';
 

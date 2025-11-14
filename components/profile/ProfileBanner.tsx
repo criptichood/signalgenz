@@ -1,6 +1,6 @@
 import React from 'react';
 import type { UserProfile } from '../../types';
-import { Button } from '../ui/Button';
+import { Button } from '@/components/ui/button';
 import { MailIcon } from '../icons/MailIcon';
 import { UserPlusIcon } from '../icons/UserPlusIcon';
 import { CalendarIcon } from '../icons/CalendarIcon';

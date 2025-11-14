@@ -1,5 +1,5 @@
 import React from 'react';
-import { FloatingCard } from '@/components/ui/FloatingCard';
+import { FloatingCard } from '@/components/ui/floating-card';
 import { FavoriteCoins } from '@/components/scalping/FavoriteCoins';
 import { OrderBook } from '@/components/scalping/OrderBook';
 import { TimeAndSales } from '@/components/scalping/TimeAndSales';

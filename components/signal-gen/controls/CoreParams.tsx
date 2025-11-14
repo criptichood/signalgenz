@@ -1,10 +1,10 @@
 import React from 'react';
 import type { Timeframe, UserParams, Exchange } from '@/types';
 import { AI_MODELS } from '@/constants';
-import { Select } from '@/components/ui/Select';
-import { Label } from '@/components/ui/Label';
-import { Combobox } from '@/components/ui/Combobox';
-import { ModelCombobox } from '@/components/ui/ModelCombobox';
+import { Select } from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
+import { Combobox } from '@/components/ui/combobox';
+import { ModelCombobox } from '@/components/ui/model-combobox';
 import { TIMEFRAME_DESCRIPTIONS } from '@/utils/timeframeDescriptions';
 
 interface CoreParamsProps {

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import type { Strategy } from '@/types';
-import { Dialog } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
-import { Input } from '@/components/ui/Input';
-import { RichTextEditor } from '@/components/ui/RichTextEditor';
-import { Button } from '@/components/ui/Button';
-import { Switch } from '@/components/ui/Switch';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { RichTextEditor } from '@/components/ui/rich-text-editor';
+import { Button } from '@/components/ui/button';
+import { Switch } from '@/components/ui/switch';
 import { Loader2 } from 'lucide-react';
 
 interface StrategyModalProps {

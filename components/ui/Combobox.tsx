@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { ChevronsUpDown, Check, Star } from 'lucide-react';
 
 interface ComboboxProps {
@@ -87,7 +87,7 @@ export const Combobox = ({ symbols, value, onSelect, disabled, favorites, setFav
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         disabled={disabled}
-        className="w-full flex justify-between items-center bg-gray-900 border border-gray-700 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full flex justify-between items-center bg-background border border-input rounded-md shadow-sm py-2 px-3 text-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
       >
         <span className="truncate">{value || 'Select a symbol...'}</span>
         <div className="flex items-center gap-2 flex-shrink-0">
@@ -99,45 +99,45 @@ export const Combobox = ({ symbols, value, onSelect, disabled, favorites, setFav
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 top-full mt-1 w-full bg-gray-800 border border-gray-700 rounded-md shadow-lg">
+        <div className="absolute z-10 top-full mt-1 w-full bg-popover border border-border rounded-md shadow-lg">
           <div className="p-2">
             <input
               type="text"
               value={search}
               onChange={e => setSearch(e.target.value)}
               placeholder="Search symbol..."
-              className="w-full bg-gray-900 border-gray-700 rounded-md py-1.5 px-2 text-sm text-white focus:outline-none focus:ring-1 focus:ring-cyan-500"
+              className="w-full bg-background border border-input rounded-md py-1.5 px-2 text-sm text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
             />
           </div>
           <ul className="max-h-60 overflow-y-auto">
             {search ? (
               filteredSymbols.length > 0 ? (
                 filteredSymbols.map(symbol => (
-                  <li key={symbol} onClick={() => handleSelect(symbol)} className="flex items-center justify-between px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 cursor-pointer">
+                  <li key={symbol} onClick={() => handleSelect(symbol)} className="flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-accent cursor-pointer">
                     <span>{symbol}</span>
-                     {value === symbol && <Check className="h-4 w-4 text-cyan-400" />}
+                     {value === symbol && <Check className="h-4 w-4 text-primary" />}
                   </li>
                 ))
               ) : (
-                <li className="px-3 py-2 text-sm text-gray-500 text-center">No symbols found.</li>
+                <li className="px-3 py-2 text-sm text-muted-foreground text-center">No symbols found.</li>
               )
             ) : (
                 symbolGroups.map(group => (
                     group.items.length > 0 && (
                         <React.Fragment key={group.title}>
-                            <li className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase">{group.title}</li>
+                            <li className="px-3 py-1 text-xs font-semibold text-muted-foreground uppercase">{group.title}</li>
                             {group.items.map(symbol => (
-                                <li key={symbol} onClick={() => handleSelect(symbol)} className="flex items-center justify-between px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 cursor-pointer group">
+                                <li key={symbol} onClick={() => handleSelect(symbol)} className="flex items-center justify-between px-3 py-2 text-sm text-foreground hover:bg-accent cursor-pointer group">
                                     <span>{symbol}</span>
                                     <div className="flex items-center gap-2">
-                                        <button 
-                                            type="button" 
-                                            onClick={(e) => toggleFavorite(e, symbol)} 
-                                            className={`p-1 rounded-full ${favorites.includes(symbol) ? 'text-yellow-300' : 'text-gray-500 opacity-50 group-hover:opacity-100'} hover:text-yellow-300 transition-opacity`}
+                                        <button
+                                            type="button"
+                                            onClick={(e) => toggleFavorite(e, symbol)}
+                                            className={`p-1 rounded-full ${favorites.includes(symbol) ? 'text-yellow-300' : 'text-muted-foreground opacity-50 group-hover:opacity-100'} hover:text-yellow-300 transition-opacity`}
                                         >
                                             <Star fill={favorites.includes(symbol) ? "currentColor" : "none"} className="w-4 h-4" />
                                         </button>
-                                        {value === symbol && <Check className="h-4 w-4 text-cyan-400" />}
+                                        {value === symbol && <Check className="h-4 w-4 text-primary" />}
                                     </div>
                                 </li>
                             ))}

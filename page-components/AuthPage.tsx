@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/Card';
-import { Label } from '../components/ui/Label';
-import { Input } from '../components/ui/Input';
-import { Button } from '../components/ui/Button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { ChartIcon } from '../components/icons/ChartIcon';
 import { Loader2Icon } from '../components/icons/Loader2Icon';
 

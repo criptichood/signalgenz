@@ -1,7 +1,7 @@
 import React from 'react';
-import { Label } from '@/components/ui/Label';
-import { Switch } from '@/components/ui/Switch';
-import { Select } from '@/components/ui/Select';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
+import { Select } from '@/components/ui/select';
 import { BotIcon } from '@/components/icons/BotIcon';
 import { ZapIcon } from '@/components/icons/ZapIcon';
 

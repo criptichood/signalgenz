@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useStore } from '../store';
-import { useChatStore } from '../store/chatStore';
-import type { ThemeMode, ThemeAccent, ChatIconType } from '../types';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/Card';
-import { Switch } from '../components/ui/Switch';
+import { useStore } from '@/store';
+import { useChatStore } from '@/store/chatStore';
+import type { ThemeMode, ThemeAccent, ChatIconType } from '@/types';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Switch } from '@/components/ui/switch';
 import { BellIcon } from '../components/icons/BellIcon';
 import { CloudIcon } from '../components/icons/CloudIcon';
 import { ChatBotIcon } from '../components/icons/ChatBotIcon';
-import { Button } from '../components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Trash2Icon } from '../components/icons/Trash2Icon';
-import { AlertDialog } from '../components/ui/AlertDialog';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 import { SparklesIcon } from '../components/icons/SparklesIcon';
 import { LightbulbIcon } from '../components/icons/LightbulbIcon';
 import { MessageSquareIcon } from '../components/icons/MessageSquareIcon';
@@ -17,8 +17,8 @@ import { ZapIcon } from '../components/icons/ZapIcon';
 import { Loader2Icon } from '../components/icons/Loader2Icon';
 import { CheckIcon } from '../components/icons/CheckIcon';
 import { getSupportedExchanges } from '../services/exchangeService';
-import { Label } from '../components/ui/Label';
-import { Select } from '../components/ui/Select';
+import { Label } from '@/components/ui/label';
+import { Select } from '@/components/ui/select';
 
 
 const accentColors: { name: ThemeAccent; bgClass: string }[] = [

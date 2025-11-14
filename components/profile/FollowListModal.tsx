@@ -1,7 +1,7 @@
 import React from 'react';
 import type { UserProfile } from '../../types';
-import { Dialog } from '../ui/Dialog';
-import { Button } from '../ui/Button';
+import { Dialog } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { UserPlusIcon } from '../icons/UserPlusIcon';
 
 interface FollowListModalProps {

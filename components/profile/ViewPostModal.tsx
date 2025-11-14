@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import type { UserPost } from '../../types';
-import { Dialog } from '../ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { PostCard } from './PostCard';
 import { useSocialStore } from '../../store/socialStore';
 

@@ -1,11 +1,11 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import type { LivePosition } from '@/types';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { ArrowUp, ArrowDown, Loader2, Pencil, Save, X } from 'lucide-react';
-import { Badge } from '@/components/ui/Badge';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Label } from '@/components/ui/Label';
+import { Badge } from '@/components/ui/badge';
+import { NumberInput } from '@/components/ui/number-input';
+import { Label } from '@/components/ui/label';
 
 interface LivePositionCardProps {
   position: LivePosition;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDashboardStore } from '@/store/dashboardStore';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
-import { Button } from '@/components/ui/Button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 
 export const AddWidgetDropdown = () => {

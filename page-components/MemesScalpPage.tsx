@@ -4,10 +4,10 @@ import { useStore } from '@/store';
 import { MOCK_MEME_COINS } from '@/data/memeCoinData';
 import { MemeCoinListItem } from '@/components/memes-scalp/MemeCoinListItem';
 import { MemeCoinDetailView } from '@/components/memes-scalp/MemeCoinDetailView';
-import { Alert } from '@/components/ui/Alert';
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/Tabs';
-import { Select } from '@/components/ui/Select';
-import { Input } from '@/components/ui/Input';
+import { Alert } from '@/components/ui/alert';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Select } from '@/components/ui/select';
+import { Input } from '@/components/ui/input';
 import { Flame, Info, Search } from 'lucide-react';
 
 type Chain = 'SOL' | 'BNB';

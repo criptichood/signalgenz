@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Share2Icon } from '@/components/icons/Share2Icon';
 import { ZapIcon } from '@/components/icons/ZapIcon';
 import { CalculatorIcon } from '@/components/icons/CalculatorIcon';

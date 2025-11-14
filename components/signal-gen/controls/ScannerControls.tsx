@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Timeframe } from '@/types';
-import { Label } from '@/components/ui/Label';
-import { Switch } from '@/components/ui/Switch';
+import { Label } from '@/components/ui/label';
+import { Switch } from '@/components/ui/switch';
 import { ScanLineIcon } from '@/components/icons/ScanLineIcon';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';
 

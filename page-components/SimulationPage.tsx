@@ -8,7 +8,7 @@ import { SimulationHistoryTable } from '@/components/simulation/SimulationHistor
 import { SimulationPlaybackView } from '@/components/simulation/SimulationPlaybackView';
 import { SimulationStatsSummary } from '@/components/simulation/SimulationStatsSummary';
 import { SimulationEmptyState } from '@/components/simulation/SimulationEmptyState';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import { ErrorMessage } from '@/components/ErrorMessage';
 import { useChartDataQuery } from '@/hooks/useChartDataQuery';

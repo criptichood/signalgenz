@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import type { Signal, UserParams } from '@/types';
 import { BybitTradeDetails } from '@/services/executionService';
-import { Button } from '@/components/ui/Button';
-import { Label } from '@/components/ui/Label';
-import { NumberInput } from '@/components/ui/NumberInput';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { NumberInput } from '@/components/ui/number-input';
 import { formatPrice } from '@/utils/formatting';
 
 interface SignalExecutionModalProps {

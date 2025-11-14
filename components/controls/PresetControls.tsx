@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import type { ScalpingPreset, UserParams } from '@/types';
-import { Button } from '@/components/ui/Button';
-import { Select } from '@/components/ui/Select';
+import { Button } from '@/components/ui/button';
+import { Select } from '@/components/ui/select';
 import { SavePresetDialog } from '@/components/scalping/SavePresetDialog';
-import { AlertDialog } from '@/components/ui/AlertDialog';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 import { BookmarkIcon } from '@/components/icons/BookmarkIcon';
 import { TrashIcon } from '@/components/icons/TrashIcon';
 import { SaveIcon } from '@/components/icons/SaveIcon';
-import { Label } from '@/components/ui/Label';
+import { Label } from '@/components/ui/label';
 
 interface PresetControlsProps {
   presets: ScalpingPreset[];

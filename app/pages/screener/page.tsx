@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const ScreenerPage = dynamic(() => import('@/pages/ScreenerPage'), {
+import dynamicImport from 'next/dynamic';
+
+const ScreenerPage = dynamicImport(() => import('@/page-components/ScreenerPage'), {
+  ssr: false,
   loading: () => <div className="flex items-center justify-center h-screen">Loading screener...</div>
 });
 

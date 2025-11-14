@@ -1,6 +1,6 @@
 import { useCalculatorStore } from '@/store/calculatorStore';
-import { Card, CardContent } from '@/components/ui/Card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/Tabs';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { LeverageCalculator } from '@/components/calculators/LeverageCalculator';
 import { PositionSizeCalculator } from '@/components/calculators/PositionSizeCalculator';
 import { RiskRewardCalculator } from '@/components/calculators/RiskRewardCalculator';

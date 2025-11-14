@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { LineStyle, IPriceLine } from 'lightweight-charts';
 import type { CandleStick, Signal, UserParams, LivePosition } from '@/types';
 import { useLightweightChart } from '@/hooks/useLightweightChart';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';
 import { ChartControls } from './ChartControls';
 import { OneClickTradeBar } from './OneClickTradeBar';

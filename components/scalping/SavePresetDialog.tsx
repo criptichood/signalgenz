@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
-import { Label } from '@/components/ui/Label';
-import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
+import { Dialog } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 interface SavePresetDialogProps {
   isOpen: boolean;

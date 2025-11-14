@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/Button';
-import { NumberInput } from '@/components/ui/NumberInput';
-import { Label } from '@/components/ui/Label';
+import { Button } from '@/components/ui/button';
+import { NumberInput } from '@/components/ui/number-input';
+import { Label } from '@/components/ui/label';
 
 interface OneClickTradeBarProps {
     margin: number;

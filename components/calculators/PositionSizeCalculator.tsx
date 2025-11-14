@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/Card';
-import { Label } from '@/components/ui/Label';
-import { NumberInput } from '@/components/ui/NumberInput';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
+import { NumberInput } from '@/components/ui/number-input';
 import { BarChartBig } from 'lucide-react';
 
 export const PositionSizeCalculator = () => {

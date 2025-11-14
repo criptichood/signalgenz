@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Strategy, UserProfile } from '@/types';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/Card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { MoreHorizontal, Edit, Trash2, Share } from 'lucide-react';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import { formatDistanceToNow } from '@/utils/date';
 
 interface StrategyCardProps {

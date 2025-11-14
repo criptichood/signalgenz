@@ -1,7 +1,6 @@
 import React from 'react';
 import type { SavedSignal } from '../../types';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
-import { Badge } from '../ui/Badge';
+import { Badge } from '@/components/ui/badge';
 import { ArrowUpIcon } from '../icons/ArrowUpIcon';
 import { ArrowDownIcon } from '../icons/ArrowDownIcon';
 import { CloseIcon } from '../icons/CloseIcon';

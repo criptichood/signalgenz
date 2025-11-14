@@ -3,12 +3,12 @@ import type { UserParams } from '@/types';
 import { useStore } from '@/store';
 import { useScreenerStore } from '@/store/screenerStore';
 import { runMarketScreener } from '@/services/geminiService';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-import { Textarea } from '@/components/ui/Textarea';
-import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 import { ErrorMessage } from '@/components/ErrorMessage';
-import { AlertDialog } from '@/components/ui/AlertDialog';
+import { AlertDialog } from '@/components/ui/alert-dialog';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';
 import { ScanLineIcon } from '@/components/icons/ScanLineIcon';
 import { FormattedReasoning } from '@/components/FormattedReasoning';
@@ -17,7 +17,7 @@ import { ChartIcon } from '@/components/icons/ChartIcon';
 import { formatDistanceToNow } from '@/utils/date';
 import { Trash2Icon } from '@/components/icons/Trash2Icon';
 import { MoreHorizontalIcon } from '@/components/icons/MoreHorizontalIcon';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import { SearchIcon } from '@/components/icons/SearchIcon';
 
 const exampleQueries = [

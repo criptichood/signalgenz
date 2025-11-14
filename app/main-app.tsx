@@ -10,7 +10,7 @@ import { Header } from '@/components/Header';
 import { ChatWidget } from '@/components/chat/ChatWidget';
 import { useChat } from '@/hooks/useChat';
 import { useSignalGenerator } from '@/hooks/useSignalGenerator';
-import { Toast } from '@/components/ui/Toast';
+import { Toast } from '@/components/ui/toast';
 import { SharePostModal } from '@/components/messages/SharePostModal';
 import { ViewPostModal } from '@/components/profile/ViewPostModal';
 import { PageContext } from '@/types';
@@ -18,88 +18,88 @@ import { PageContext } from '@/types';
 // Dynamic imports for all pages
 import dynamic from 'next/dynamic';
 
-const DashboardPage = dynamic(() => import('@/pages/DashboardPage'), {
-  ssr: false,
+const DashboardPage = dynamic(() => import('@/page-components/DashboardPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading dashboard...</div>
 });
-const SignalGenPage = dynamic(() => import('@/pages/SignalGenPage'), {
-  ssr: false,
+const SignalGenPage = dynamic(() => import('@/page-components/SignalGenPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading signal generator...</div>
 });
-const ScalpingPage = dynamic(() => import('@/pages/ScalpingPage'), {
-  ssr: false,
+const ScalpingPage = dynamic(() => import('@/page-components/ScalpingPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading scalping...</div>
 });
-const MemesScalpPage = dynamic(() => import('@/pages/MemesScalpPage'), {
-  ssr: false,
+const MemesScalpPage = dynamic(() => import('@/page-components/MemesScalpPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading memes scalping...</div>
 });
-const ScreenerPage = dynamic(() => import('@/pages/ScreenerPage'), {
-  ssr: false,
+const ScreenerPage = dynamic(() => import('@/page-components/ScreenerPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading screener...</div>
 });
-const NewsPage = dynamic(() => import('@/pages/NewsPage'), {
-  ssr: false,
+const NewsPage = dynamic(() => import('@/page-components/NewsPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading news...</div>
 });
-const HistoryPage = dynamic(() => import('@/pages/HistoryPage'), {
-  ssr: false,
+const HistoryPage = dynamic(() => import('@/page-components/HistoryPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading history...</div>
 });
-const SimulationPage = dynamic(() => import('@/pages/SimulationPage'), {
-  ssr: false,
+const SimulationPage = dynamic(() => import('@/page-components/SimulationPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading simulation...</div>
 });
-const SpotLogPage = dynamic(() => import('@/pages/SpotLogPage'), {
-  ssr: false,
+const SpotLogPage = dynamic(() => import('@/page-components/SpotLogPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading spot log...</div>
 });
-const PerpLogPage = dynamic(() => import('@/pages/PerpLogPage'), {
-  ssr: false,
+const PerpLogPage = dynamic(() => import('@/page-components/PerpLogPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading perp log...</div>
 });
-const TutorialsPage = dynamic(() => import('@/pages/TutorialsPage'), {
-  ssr: false,
+const TutorialsPage = dynamic(() => import('@/page-components/TutorialsPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading tutorials...</div>
 });
-const CalculatorPage = dynamic(() => import('@/pages/CalculatorPage'), {
-  ssr: false,
+const CalculatorPage = dynamic(() => import('@/page-components/CalculatorPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading calculator...</div>
 });
-const AnalyticsPage = dynamic(() => import('@/pages/AnalyticsPage'), {
-  ssr: false,
+const AnalyticsPage = dynamic(() => import('@/page-components/AnalyticsPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading analytics...</div>
 });
-const StablecoinStashPage = dynamic(() => import('@/pages/StablecoinStashPage'), {
-  ssr: false,
+const StablecoinStashPage = dynamic(() => import('@/page-components/StablecoinStashPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading stablecoin stash...</div>
 });
-const StrategyPage = dynamic(() => import('@/pages/StrategyPage'), {
-  ssr: false,
+const StrategyPage = dynamic(() => import('@/page-components/StrategyPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading strategies...</div>
 });
-const ProfilePage = dynamic(() => import('@/pages/ProfilePage'), {
-  ssr: false,
+const ProfilePage = dynamic(() => import('@/page-components/ProfilePage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading profile...</div>
 });
-const SettingsPage = dynamic(() => import('@/pages/SettingsPage'), {
-  ssr: false,
+const SettingsPage = dynamic(() => import('@/page-components/SettingsPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading settings...</div>
 });
-const DiscoverPage = dynamic(() => import('@/pages/DiscoverPage'), {
-  ssr: false,
+const DiscoverPage = dynamic(() => import('@/page-components/DiscoverPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading discover...</div>
 });
-const MessagesPage = dynamic(() => import('@/pages/MessagesPage'), {
-  ssr: false,
+const MessagesPage = dynamic(() => import('@/page-components/MessagesPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading messages...</div>
 });
-const AuthPage = dynamic(() => import('@/pages/AuthPage'), {
-  ssr: false,
+const AuthPage = dynamic(() => import('@/page-components/AuthPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading authentication...</div>
 });
-const ManualStudioPage = dynamic(() => import('@/pages/ManualStudioPage'), {
-  ssr: false,
+const ManualStudioPage = dynamic(() => import('@/page-components/ManualStudioPage'), {
+
   loading: () => <div className="flex items-center justify-center h-screen">Loading manual studio...</div>
 });
 
@@ -215,10 +215,10 @@ export default function MainApp() {
   const handleNavigateToProfile = (username: string) => {
     if (currentUser && username === currentUser.username) {
       setViewingProfileUsername(null);
-      router.push('/profile');
+      router.push('/profile' as any);
     } else {
       setViewingProfileUsername(username);
-      router.push('/view-profile');
+      router.push('/view-profile' as any);
     }
   };
 

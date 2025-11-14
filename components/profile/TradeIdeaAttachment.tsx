@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import type { TradeIdea, AIFeedback, Timeframe } from '../../types';
-import { Badge } from '../ui/Badge';
+import { Badge } from '@/components/ui/badge';
 import { ArrowUpIcon } from '../icons/ArrowUpIcon';
 import { ArrowDownIcon } from '../icons/ArrowDownIcon';
 import { CloseIcon } from '../icons/CloseIcon';
 import { LightbulbIcon } from '../icons/LightbulbIcon';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 import { SparklesIcon } from '../icons/SparklesIcon';
 import { Loader2Icon } from '../icons/Loader2Icon';
 import { FormattedReasoning } from '../FormattedReasoning';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { CandleStick, SimulationSetup } from '@/types';
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/Card';
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { ReplayChart } from '@/components/simulation/ReplayChart';
 import { useSimulation } from '@/hooks/useSimulation';
 import { Loader2, X, CandlestickChart, LineChart } from 'lucide-react';

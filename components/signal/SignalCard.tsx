@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Signal, SavedSignal, UserParams } from '@/types';
 import { BybitTradeDetails } from '@/services/executionService';
-import { Card, CardContent, CardFooter } from '@/components/ui/Card';
-import { ClockIcon } from '@/components/icons/ClockIcon';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Clock } from 'lucide-react';
 import { parseDurationToMillis } from '@/utils/date';
 import { SignalExplanationDialog } from './SignalExplanationDialog';
 import { PLForecasterModal } from './PLForecasterModal';
@@ -37,9 +37,9 @@ interface SignalCardProps {
   onShareAsPost?: () => void;
 }
 
-export const SignalCard = ({ 
-    signal, 
-    isLoading, 
+export const SignalCard = ({
+    signal,
+    isLoading,
     isFavorite,
     onToggleFavorite,
     viewContext = 'generation',
@@ -109,19 +109,19 @@ export const SignalCard = ({
 
   if (isLoading) return <LoadingState />;
   if (!signal) return <EmptyState />;
-  
+
   const handleExecute = (details: BybitTradeDetails) => {
     onExecute?.(details).catch(err => console.error("Trade execution failed:", err));
     setExecutionType(null);
   };
-  
+
   const isLong = signal.direction === 'LONG';
   const glowClass = isNew ? (isLong ? 'animate-glow-green' : 'animate-glow-red') : '';
   const canExecute = !!onExecute && !isExpired && !isExecuted;
 
   return (
     <>
-      <Card className={`relative backdrop-blur-sm bg-gray-800/70 transition-all duration-300 ${glowClass}`}>
+      <Card className={`relative backdrop-blur-sm bg-card/70 transition-all duration-300 ${glowClass}`}>
         {executionType && currentParams && (
             <SignalExecutionModal
                 signal={signal as Signal & { symbol: string }}
@@ -133,10 +133,10 @@ export const SignalCard = ({
             />
         )}
         {viewContext === 'generation' && isExpired && (
-          <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 rounded-lg text-center p-4">
-            <ClockIcon className="w-12 h-12 text-yellow-400 mb-4" />
-            <h3 className="text-2xl font-bold text-white">Signal Expired</h3>
-            <p className="text-gray-400 mt-1">Please generate a new signal for the latest analysis.</p>
+          <div className="absolute inset-0 bg-muted/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 rounded-lg text-center p-4">
+            <Clock className="w-12 h-12 text-yellow-400 mb-4" />
+            <h3 className="text-2xl font-bold">Signal Expired</h3>
+            <p className="text-muted-foreground mt-1">Please generate a new signal for the latest analysis.</p>
           </div>
         )}
         <SignalCardHeader
@@ -170,7 +170,7 @@ export const SignalCard = ({
             />
         </CardFooter>
       </Card>
-      
+
       {isExplanationOpen && (
         <SignalExplanationDialog
           symbol={signal.symbol}
@@ -178,7 +178,7 @@ export const SignalCard = ({
           onClose={() => setIsExplanationOpen(false)}
         />
       )}
-      
+
       {isForecasterOpen && currentParams && (
         <PLForecasterModal
             isOpen={isForecasterOpen}

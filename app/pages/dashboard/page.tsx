@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const DashboardPage = dynamic(() => import('@/pages/DashboardPage'), {
+import dynamicImport from 'next/dynamic';
+
+const DashboardPage = dynamicImport(() => import('@/page-components/DashboardPage'), {
+  ssr: false,
   loading: () => <div className="flex items-center justify-center h-screen">Loading dashboard...</div>
 });
 

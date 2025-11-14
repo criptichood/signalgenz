@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { Dialog } from '@/components/ui/Dialog';
+import { Dialog } from '@/components/ui/dialog';
 import { explainSignal } from '@/services/geminiService';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';
 import { SparklesIcon } from '@/components/icons/SparklesIcon';

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import type { Signal, AIFeedback, Timeframe } from '@/types';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/Card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { SignalCardLevels } from '@/components/signal/sections/SignalCardLevels';
 import { SignalCardMetrics } from '@/components/signal/sections/SignalCardMetrics';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { SparklesIcon } from '@/components/icons/SparklesIcon';
 import { FormattedReasoning } from '@/components/FormattedReasoning';
 import { Loader2Icon } from '@/components/icons/Loader2Icon';

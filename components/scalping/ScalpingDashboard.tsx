@@ -3,7 +3,7 @@ import { LivePriceChart } from '@/components/chart/LivePriceChart';
 import { SignalCard } from '@/components/signal/SignalCard';
 import { HistoryTable } from '@/components/HistoryTable';
 import { LivePositions } from './LivePositions';
-import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuContent } from '@/components/ui/dropdown-menu';
 import { LayoutIcon } from '@/components/icons/LayoutIcon';
 import { CheckIcon } from '@/components/icons/CheckIcon';
 import type { CandleStick, Signal, UserParams, SavedSignal, LivePosition } from '@/types';

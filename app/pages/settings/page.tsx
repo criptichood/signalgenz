@@ -1,8 +1,11 @@
 'use client';
 
-import dynamic from 'next/dynamic';
+export const dynamic = 'force-dynamic';
 
-const SettingsPage = dynamic(() => import('@/pages/SettingsPage'), {
+import dynamicImport from 'next/dynamic';
+
+const SettingsPage = dynamicImport(() => import('@/page-components/SettingsPage'), {
+  ssr: false,
   loading: () => <div className="flex items-center justify-center h-screen">Loading settings...</div>
 });
 
