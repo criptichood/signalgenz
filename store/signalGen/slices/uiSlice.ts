@@ -21,7 +21,7 @@ export interface UISlice {
   toggleMinimize: (id: keyof WindowsState) => void;
 }
 
-export const createUISlice: StateCreator<SignalGenState, [], [], UISlice> = (set) => ({
+export const createUISlice: StateCreator<SignalGenState, [], [], UISlice> = (set, get, api) => ({
   selectedSignal: null,
   isModalOpen: false,
   isNewSignal: false,
@@ -29,8 +29,8 @@ export const createUISlice: StateCreator<SignalGenState, [], [], UISlice> = (set
   isSignalEntered: false,
   isControlsOpen: true,
   windowsState: {
-    orderBook: { isOpen: false, isMinimized: false, position: { x: window.innerWidth - 340, y: 96 } },
-    timeAndSales: { isOpen: false, isMinimized: false, position: { x: window.innerWidth - 340, y: 560 } },
+    orderBook: { isOpen: false, isMinimized: false, position: { x: typeof window !== 'undefined' ? window.innerWidth - 340 : 600, y: 96 } },
+    timeAndSales: { isOpen: false, isMinimized: false, position: { x: typeof window !== 'undefined' ? window.innerWidth - 340 : 600, y: 560 } },
     favorites: { isOpen: false, isMinimized: false, position: { x: 400, y: 96 } },
   },
   setSelectedSignal: (signal) => set({ selectedSignal: signal }),

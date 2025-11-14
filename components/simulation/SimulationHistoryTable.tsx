@@ -22,12 +22,15 @@ const statusVariant: Record<SimulationSetup['status'], 'default' | 'success' | '
     completed: 'success',
 };
 
-const getOutcomeDisplay = (outcome: SimulationSetup['result']['outcome']) => {
-    switch (outcome) {
+const getOutcomeDisplay = (result: SimulationSetup['result']) => {
+    if (!result) {
+        return { variant: 'default' as const, text: 'No Result' };
+    }
+    switch (result.outcome) {
         case 'TP1 Hit':
         case 'TP2 Hit':
         case 'TP3 Hit':
-            return { variant: 'success' as const, text: outcome };
+            return { variant: 'success' as const, text: result.outcome };
         case 'SL Hit':
             return { variant: 'danger' as const, text: 'Stop Loss' };
         case 'Stopped':
@@ -35,7 +38,7 @@ const getOutcomeDisplay = (outcome: SimulationSetup['result']['outcome']) => {
         case 'Expired':
             return { variant: 'default' as const, text: 'Expired' };
         default:
-            return { variant: 'default' as const, text: outcome };
+            return { variant: 'default' as const, text: result.outcome };
     }
 }
 
@@ -72,8 +75,8 @@ export const SimulationHistoryTable = ({ simulations, onDelete, onStart, isLoadi
                                         <TableCell>
                                             {sim.status === 'completed' && sim.result ? (
                                                 <>
-                                                    <Badge variant={getOutcomeDisplay(sim.result.outcome).variant} className="capitalize">
-                                                        {getOutcomeDisplay(sim.result.outcome).text}
+                                                    <Badge variant={getOutcomeDisplay(sim.result).variant} className="capitalize">
+                                                        {getOutcomeDisplay(sim.result).text}
                                                     </Badge>
                                                     <span className={`ml-2 text-sm font-mono ${
                                                         sim.result.pnl > 0 ? 'text-green-400' : sim.result.pnl < 0 ? 'text-red-400' : 'text-gray-400'

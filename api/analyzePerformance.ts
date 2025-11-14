@@ -8,6 +8,17 @@ export default async function handler(req: any, res: any) {
 
     try {
         const { perpTrades, spotTrades }: { perpTrades: PerpTrade[], spotTrades: SpotTrade[] } = req.body;
+
+        // Validation - perpTrades and spotTrades should be arrays
+        if (!Array.isArray(perpTrades) || !Array.isArray(spotTrades)) {
+            return res.status(400).json({ message: 'perpTrades and spotTrades must be arrays' });
+        }
+
+        // Validate array lengths to prevent abuse
+        if (perpTrades.length > 1000 || spotTrades.length > 1000) {
+            return res.status(400).json({ message: 'Trade arrays are too large' });
+        }
+
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
         const recentPerpTrades = perpTrades.filter(t => t.status === 'Closed').slice(0, 50);
@@ -33,11 +44,16 @@ export default async function handler(req: any, res: any) {
                 systemInstruction: "You are a helpful and insightful trading coach who provides clear, structured analysis of a user's trade history.",
             },
         });
-        
-        res.status(200).json({ analysis: response.text.trim() });
+
+        const textResponse = response.text?.trim() || "No analysis available";
+        res.status(200).json({ analysis: textResponse });
 
     } catch (error: any) {
         console.error("Error in /api/analyzePerformance:", error);
-        res.status(500).json({ message: error.message || 'An internal server error occurred.' });
+        // Don't expose internal error details to the client unless in development
+        const errorMessage = process.env.NODE_ENV === 'development'
+            ? error.message
+            : 'An internal server error occurred.';
+        res.status(500).json({ message: errorMessage });
     }
 }

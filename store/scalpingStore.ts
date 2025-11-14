@@ -138,8 +138,8 @@ export const useScalpingStore = create<ScalpingState>()(
       isCurrentSignalExecuted: false,
       isSignalEntered: false,
       windowsState: {
-        orderBook: { isOpen: false, isMinimized: false, position: { x: window.innerWidth - 340, y: 96 } },
-        timeAndSales: { isOpen: false, isMinimized: false, position: { x: window.innerWidth - 340, y: 560 } },
+        orderBook: { isOpen: false, isMinimized: false, position: { x: typeof window !== 'undefined' ? window.innerWidth - 340 : 600, y: 96 } },
+        timeAndSales: { isOpen: false, isMinimized: false, position: { x: typeof window !== 'undefined' ? window.innerWidth - 340 : 600, y: 560 } },
         favorites: { isOpen: false, isMinimized: false, position: { x: 400, y: 96 } },
       },
       isScanningSymbol: null,

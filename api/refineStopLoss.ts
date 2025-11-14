@@ -38,8 +38,11 @@ export default async function handler(req: any, res: any) {
                 systemInstruction: "You are a precise trading analyst that responds with only a single number as requested.",
             },
         });
-        
-        const text = response.text.trim();
+
+        const text = response.text?.trim();
+        if (!text) {
+            return res.status(500).json({ message: 'AI returned an empty response for refined SL price' });
+        }
         const refinedPrice = parseFloat(text);
 
         if (isNaN(refinedPrice)) {

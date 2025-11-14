@@ -39,7 +39,7 @@ const getInitialState = (trade: SpotTrade | null) => ({
 
 export const SpotTradeModal = ({ isOpen, onClose, onSave, tradeToEdit, symbols }: SpotTradeModalProps) => {
     const [formData, setFormData] = useState(getInitialState(tradeToEdit));
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [errors, setErrors] = useState<Record<string, string | undefined>>({});
     const [isSaving, setIsSaving] = useState(false);
     const [favorites, setFavorites] = useLocalStorage<string[]>('spotFavoriteSymbols', ['BTCUSDT', 'ETHUSDT']);
 

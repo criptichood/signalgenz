@@ -73,14 +73,12 @@ export function useSignalGenerator(
     scalpCancellationRef.current = false;
     updateScalpingGenerationState({ isAnalyzing: true, signal: null, error: null, currentParams: params, generationTimestamp: null, lastDataTimestamp: null });
     try {
-      const ltfMarketData = await exchangeService.fetchData(params.exchange, params.symbol, params.timeframe, 1);
-      if (scalpCancellationRef.current) return;
-
-      const livePrice = ltfMarketData.length > 0 ? ltfMarketData[ltfMarketData.length - 1].close : 0;
+      // Fetch live price to update state
+      const livePrice = await exchangeService.fetchLivePrice(params.exchange, params.symbol);
       updateScalpingGenerationState({ currentPrice: livePrice });
-      
+
       const generatedSignal = await generateScalpingSignal(params, [], [], extraData?.orderBookData ?? null, extraData?.liveTrades ?? []);
-      
+
       if (scalpCancellationRef.current) return;
       const timestamp = Date.now();
       updateScalpingGenerationState({ signal: generatedSignal, currentPrice: livePrice, lastDataTimestamp: null, generationTimestamp: timestamp });

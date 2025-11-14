@@ -69,7 +69,7 @@ export default function ManualStudioPage() {
                 signal: stagedSignal,
                 params: { ...formData, model: '' } as any, // model is not relevant for manual
                 timestamp: stagedSignal.timestamp,
-                windowState: { isOpen: true, isMinimized: false, position: { x: window.innerWidth - 340, y: 96 } }
+                windowState: { isOpen: true, isMinimized: false, position: { x: typeof window !== 'undefined' ? window.innerWidth - 340 : 600, y: 96 } }
             }]);
 
             setIsStaging(false);

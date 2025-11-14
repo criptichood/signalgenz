@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import type { Page, Notification, UserProfile } from '../../types';
 import { BellIcon } from '../icons/BellIcon';

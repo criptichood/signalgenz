@@ -14,8 +14,19 @@ export default async function handler(req: any, res: any) {
 
     try {
         const { query }: { query: string } = req.body;
+
+        // Validation
+        if (!query) {
+            return res.status(400).json({ message: 'Missing required parameter: query' });
+        }
+
+        // Validate query length to prevent abuse
+        if (query.length > 2000) {
+            return res.status(400).json({ message: 'Query is too long' });
+        }
+
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-        
+
         const prompt = `
             User Query: "${query}"
 
@@ -25,7 +36,7 @@ export default async function handler(req: any, res: any) {
             Your Task:
             Analyze the provided list of symbols based on the user's query. Return a list of symbols that best match the criteria. For each symbol, provide a concise rationale.
         `;
-        
+
         const screenerSchema = {
             type: Type.ARRAY,
             items: {
@@ -37,7 +48,7 @@ export default async function handler(req: any, res: any) {
                 required: ['symbol', 'rationale']
             }
         };
-        
+
         const response = await ai.models.generateContent({
             model: 'gemini-2.5-flash',
             contents: prompt,
@@ -48,17 +59,24 @@ export default async function handler(req: any, res: any) {
             },
         });
 
-        const jsonString = response.text.trim();
-        const results = JSON.parse(jsonString);
+        const textResponse = response.text?.trim();
+        if (!textResponse) {
+            throw new Error("AI returned an empty response for the screener.");
+        }
+        const results = JSON.parse(textResponse);
 
         if (!Array.isArray(results)) {
             throw new Error("AI returned a non-array response for the screener.");
         }
-        
+
         res.status(200).json(results);
 
     } catch (error: any) {
         console.error("Error in /api/runScreener:", error);
-        res.status(500).json({ message: error.message || 'An internal server error occurred.' });
+        // Don't expose internal error details to the client unless in development
+        const errorMessage = process.env.NODE_ENV === 'development'
+            ? error.message
+            : 'An internal server error occurred.';
+        res.status(500).json({ message: errorMessage });
     }
 }

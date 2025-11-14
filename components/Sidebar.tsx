@@ -1,5 +1,7 @@
 
 
+'use client';
+
 import React, { useMemo } from 'react';
 import type { Page, ChatIconType } from '@/types';
 import { useStore } from '@/store';

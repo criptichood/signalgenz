@@ -50,7 +50,7 @@ export const CumulativePnlChart = ({ data }: CumulativePnlChartProps) => {
           <YAxis stroke="#9ca3af" tick={{ fontSize: 12 }} tickFormatter={(value) => `$${Number(value).toLocaleString()}`} />
           <Tooltip content={<CustomTooltip />} />
           <Line type="monotone" dataKey="pnl" stroke={isPositiveTrend ? "#22c55e" : "#ef4444"} strokeWidth={2} dot={false} />
-          <Area type="monotone" dataKey="pnl" stroke={false} fill={`url(#${gradientId})`} />
+          <Area type="monotone" dataKey="pnl" stroke="none" fill={`url(#${gradientId})`} />
         </LineChart>
       </ResponsiveContainer>
     </div>

@@ -42,7 +42,7 @@ const getInitialState = (trade: PerpTrade | null) => ({
 
 export const PerpTradeModal = ({ isOpen, onClose, onSave, tradeToEdit, symbols }: PerpTradeModalProps) => {
     const [formData, setFormData] = useState(getInitialState(tradeToEdit));
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [errors, setErrors] = useState<Record<string, string | undefined>>({});
     const [isSaving, setIsSaving] = useState(false);
     const [favorites, setFavorites] = useLocalStorage<string[]>('perpFavoriteSymbols', ['BTCUSDT', 'ETHUSDT']);
     

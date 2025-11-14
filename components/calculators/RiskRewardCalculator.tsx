@@ -150,7 +150,7 @@ export function RiskRewardCalculator() {
       return { ...tp, exitPrice, profitAmount, roe };
     });
 
-    let customTakeProfit = null;
+    let customTakeProfit: { exitPrice: number; profitAmount: number; roe: number; } | null = null;
     const numTpPercentage = parseFloat(tpPercentage || '0');
     if (numTpPercentage > 0 && margin > 0 && positionSizeInCoins > 0) {
         const profitAmount = margin * (numTpPercentage / 100);

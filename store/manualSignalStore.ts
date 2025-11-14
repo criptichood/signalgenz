@@ -13,7 +13,8 @@ interface ManualSignalState {
         tp1: string;
         tp2: string;
         tp3: string;
-        margin: string;
+        accountSize: string;
+        riskPercent: string;
         leverage: string;
         duration: string;
         reasoning: string;
@@ -49,7 +50,8 @@ export const useManualSignalStore = create<ManualSignalState>()(
         tp1: '',
         tp2: '',
         tp3: '',
-        margin: '50',
+        accountSize: '1000',
+        riskPercent: '1',
         leverage: '20',
         duration: '1hr - 2hr',
         reasoning: '',

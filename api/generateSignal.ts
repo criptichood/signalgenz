@@ -9,8 +9,26 @@ export default async function handler(req: any, res: any) {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
+    // Add rate limiting and validation
+    const params: UserParams = req.body;
+
+    // Basic validation to ensure required fields exist
+    if (!params || !params.symbol || !params.timeframe || !params.model) {
+        return res.status(400).json({ message: 'Missing required parameters: symbol, timeframe, or model' });
+    }
+
+    // Validate symbol format (basic check)
+    if (!/^[A-Z0-9]{2,10}[A-Z0-9]{3,5}$/.test(params.symbol)) {
+        return res.status(400).json({ message: 'Invalid symbol format' });
+    }
+
+    // Validate timeframe
+    const validTimeframes: Timeframe[] = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '1d', '1w'];
+    if (!validTimeframes.includes(params.timeframe)) {
+        return res.status(400).json({ message: 'Invalid timeframe' });
+    }
+
     try {
-        const params: UserParams = req.body;
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
         const allTimeframes: Timeframe[] = ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '1d', '1w'];
@@ -29,7 +47,7 @@ export default async function handler(req: any, res: any) {
             htf ? exchangeService.fetchData(params.exchange, params.symbol, htf, 100) : Promise.resolve(null),
             ltf ? exchangeService.fetchData(params.exchange, params.symbol, ltf, 20) : Promise.resolve(null),
         ]);
-        
+
         const livePrice = primaryData.length > 0 ? primaryData[primaryData.length - 1].close : 0;
         if (livePrice === 0) {
             throw new Error("Could not determine the current price from market data.");
@@ -47,9 +65,12 @@ export default async function handler(req: any, res: any) {
                 responseSchema: responseSchema,
             },
         });
-        
-        const jsonString = response.text.trim();
-        const parsed = JSON.parse(jsonString);
+
+        const textResponse = response.text?.trim();
+        if (!textResponse) {
+            throw new Error("AI returned an empty response for signal generation.");
+        }
+        const parsed = JSON.parse(textResponse);
 
         const signal: Signal = { ...parsed, tradeDuration: parsed.predictedMoveDuration };
         // @ts-ignore
@@ -63,7 +84,11 @@ export default async function handler(req: any, res: any) {
 
     } catch (error: any) {
         console.error("Error in /api/generateSignal:", error);
-        res.status(500).json({ message: error.message || 'An internal server error occurred.' });
+        // Don't expose internal error details to the client unless in development
+        const errorMessage = process.env.NODE_ENV === 'development'
+            ? error.message
+            : 'An internal server error occurred.';
+        res.status(500).json({ message: errorMessage });
     }
 }
 

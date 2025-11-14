@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 // FIX: Update import path for PageContext to fix circular dependency.
 import type { Page, PageContext, UserProfile } from '@/types';

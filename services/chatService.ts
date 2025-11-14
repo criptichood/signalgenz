@@ -1,6 +1,4 @@
-import { GoogleGenAI, FunctionDeclaration, Type } from "@google/genai";
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+import { FunctionDeclaration, Type } from "@google/genai";
 
 export const SYSTEM_INSTRUCTION = `You are a helpful and expertly informed AI assistant for "Signal Gen," a sophisticated cryptocurrency trading application. Your primary role is to assist users by answering questions about the app's features, general trading concepts, risk management, and providing context-aware guidance.
 
@@ -145,14 +143,21 @@ export const getTutorialContentFunctionDeclaration: FunctionDeclaration = {
 
 export async function generateChatTitle(prompt: string): Promise<string> {
     try {
-        const titlePrompt = `Generate a very short, concise title (max 5 words) for the following user query. Only return the title text, nothing else. Do not use quotes. Query: "${prompt}"`;
-        const response = await ai.models.generateContent({
-            model: 'gemini-2.5-flash',
-            contents: titlePrompt,
+        const response = await fetch('/api/generateChatTitle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ prompt }),
         });
 
-        // Clean up response to remove potential quotes or extra text
-        return response.text.trim().replace(/^"|"$/g, '');
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Failed to generate chat title');
+        }
+
+        const data = await response.json();
+        return data.title;
     } catch (error) {
         console.error("Error generating chat title:", error);
         // Fallback to simple truncation on failure

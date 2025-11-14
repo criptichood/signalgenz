@@ -26,7 +26,7 @@ const getInitialState = (strategy: Strategy | null) => ({
 
 export const StrategyModal = ({ isOpen, onClose, onSave, strategyToEdit }: StrategyModalProps) => {
     const [formData, setFormData] = useState(getInitialState(strategyToEdit));
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [errors, setErrors] = useState<Record<string, string | undefined>>({});
     const [isSaving, setIsSaving] = useState(false);
 
     useEffect(() => {

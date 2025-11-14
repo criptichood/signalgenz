@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { useChartDataQuery } from '@/hooks/useChartDataQuery';
 import { useExchangeWebSocket } from '@/hooks/useExchangeWebSocket';

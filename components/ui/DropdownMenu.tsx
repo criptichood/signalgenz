@@ -4,7 +4,7 @@ interface DropdownMenuContextType {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   // Use a more generic ref type to accommodate different trigger elements (div, button, etc.)
-  triggerRef: React.RefObject<HTMLElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
 }
 
 const DropdownMenuContext = createContext<DropdownMenuContextType | null>(null);
@@ -12,7 +12,7 @@ const DropdownMenuContext = createContext<DropdownMenuContextType | null>(null);
 export const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const triggerRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
   
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

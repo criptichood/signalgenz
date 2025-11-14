@@ -16,12 +16,12 @@ interface GenerateSignalResult {
 }
 
 /**
- * The mutation function now calls the client-side service, which contains the full Gemini logic.
+ * The mutation function now calls the client-side service, which makes a backend API call.
  */
 const generateSignalMutationFn = async ({ params }: GenerateSignalVariables): Promise<GenerateSignalResult> => {
-  // Call the restored client-side service function
+  // Call the service function which now makes a backend API call
   const generatedSignal = await generateSignal(params);
-  
+
   // Fetch the latest price to return with the result for UI state consistency
   const lastClose = await exchangeService.fetchLivePrice(params.exchange, params.symbol);
 

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { Page } from '@/types';
 import { TrendingUp, Menu } from 'lucide-react';
