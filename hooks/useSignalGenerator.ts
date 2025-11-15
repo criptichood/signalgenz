@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-import type { Page, UserParams, Signal, SavedSignal, AiModel, Timeframe, OrderBookUpdate, LiveTrade } from '@/types';
+import type { UserParams, Signal, SavedSignal, AiModel, OrderBookUpdate, LiveTrade } from '@/types';
 import { generateScalpingSignal } from '@/services/geminiService';
-import { useLocalStorage } from './useLocalStorage';
+
 import { AI_MODELS } from '@/constants';
 import { playSound } from '@/utils/audio';
 import { useGenerateSignalMutation } from './useGenerateSignalMutation';
