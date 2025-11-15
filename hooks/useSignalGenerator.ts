@@ -147,7 +147,7 @@ export function useSignalGenerator(
         }
       }
     );
-  }, [signalGenFormDataFromStore, setSignalGenFormDataInStore, setCurrentPage, updateSignalGenerationState, signalMutation, audioAlertsEnabled, setSignalHistory]);
+  }, [signalGenFormDataFromStore, setSignalGenFormDataInStore, updateSignalGenerationState, signalMutation, audioAlertsEnabled, setSignalHistory, router]);
 
   const triggerScalpGeneration = useCallback((params: Partial<UserParams>, options?: { navigate?: boolean; extraData?: { orderBookData: OrderBookUpdate | null, liveTrades: LiveTrade[] } }) => {
     const shouldNavigate = options?.navigate ?? true;
@@ -162,7 +162,7 @@ export function useSignalGenerator(
     } else {
         updateScalpingGenerationState({ error: "Invalid AI model selected for generation."});
     }
-  }, [scalpingFormDataFromStore, setScalpingFormDataInStore, runScalpGeneration, setCurrentPage, updateScalpingGenerationState]);
+  }, [scalpingFormDataFromStore, setScalpingFormDataInStore, runScalpGeneration, updateScalpingGenerationState, router]);
 
   return {
     signalGenController: {
