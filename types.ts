@@ -1,27 +1,6 @@
 export type Exchange = 'binance' | 'bybit';
 
-export type Page =
-  | 'dashboard'
-  | 'signal-gen'
-  | 'scalping'
-  | 'memes-scalp'
-  | 'screener'
-  | 'news'
-  | 'history'
-  | 'spot-log'
-  | 'perp-log'
-  | 'simulation'
-  | 'analytics'
-  | 'calculator'
-  | 'tutorials'
-  | 'stablecoin-stash'
-  | 'strategies'
-  | 'profile'
-  | 'view-profile'
-  | 'settings'
-  | 'discover'
-  | 'messages'
-  | 'manual-studio';
+
 
 // FIX: Add PageContext interface here to break circular dependency
 export interface PageContext {

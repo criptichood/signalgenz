@@ -1,13 +1,7 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
+import MainApp from './main-app';
 
-import dynamicImport from 'next/dynamic';
-
-const MainApp = dynamicImport(() => import('./main-app'), {
-  ssr: false,
-});
-
-export default function HomePage() {
-  return <MainApp />;
+export default function HomePage({ children }: { children: React.ReactNode }) {
+  return <MainApp>{children}</MainApp>;
 }

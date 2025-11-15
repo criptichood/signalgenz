@@ -63,7 +63,7 @@ export const useDashboardStore = create<DashboardState>()(
     {
       name: 'dashboard-layout-storage',
       partialize: (state) => ({
-          activeWidgets: state.activeWidgets,
+          activeWidgets: state.activeWidgets.length > 0 ? state.activeWidgets : DEFAULT_LAYOUT,
       }),
     }
   )

@@ -12,7 +12,6 @@ interface MessagesPageProps {
 
 export default function MessagesPage({ onNavigateToProfile }: MessagesPageProps) {
     const { 
-        // FIX: Remove `currentUser` from destructuring as it does not exist on the store.
         users, conversations, handleSendMessage, 
         activeConversationId, setActiveConversationId, 
         pendingMessage, setPendingMessage 

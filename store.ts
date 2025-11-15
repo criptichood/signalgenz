@@ -19,12 +19,10 @@ interface AppState {
   logout: () => void;
 
   // UI State
-  currentPage: Page;
   isSidebarOpen: boolean;
   isChatOpen: boolean;
   toast: { message: string; variant: 'success' | 'warning' | 'error' } | null;
   chatFabPosition: { x: number; y: number } | null;
-  setCurrentPage: (page: Page) => void;
   setIsSidebarOpen: (isOpen: boolean) => void;
   setIsChatOpen: (isOpen: boolean) => void;
   setToast: (toast: AppState['toast']) => void;
@@ -55,7 +53,6 @@ export const useStore = create<AppState>()(
       binanceApiKey: '',
       binanceApiSecret: '',
       isAuthenticated: false,
-      currentPage: 'dashboard',
       isSidebarOpen: false,
       isChatOpen: false,
       toast: null,
@@ -72,8 +69,7 @@ export const useStore = create<AppState>()(
       setBinanceApiKey: (key) => set({ binanceApiKey: key }),
       setBinanceApiSecret: (key) => set({ binanceApiSecret: key }),
       login: () => set({ isAuthenticated: true }),
-      logout: () => set({ isAuthenticated: false, currentPage: 'dashboard' }), // Reset to dashboard on logout
-      setCurrentPage: (page) => set({ currentPage: page }),
+      logout: () => set({ isAuthenticated: false }), // Reset to dashboard on logout
       setIsSidebarOpen: (isOpen) => set({ isSidebarOpen: isOpen }),
       setIsChatOpen: (isOpen) => set({ isChatOpen: isOpen }),
       setToast: (toast) => set({ toast }),

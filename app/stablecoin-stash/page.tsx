@@ -48,7 +48,6 @@ export default function StablecoinStashPage() {
         let total = 0;
         const breakdown: Record<string, number> = {};
 
-        // FIX: Switched from Object.values to Object.keys to iterate over holdings. This ensures TypeScript correctly infers the type of `holdingInfo` and avoids errors with `unknown` type.
         Object.keys(holdings).forEach(walletId => {
             const holdingInfo = holdings[walletId];
             holdingInfo.data.forEach(coin => {

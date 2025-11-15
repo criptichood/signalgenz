@@ -3,6 +3,8 @@
 'use client';
 
 import React, { useMemo } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import type { Page, ChatIconType } from '@/types';
 import { useStore } from '@/store';
 import { useSocialStore } from '@/store/socialStore';
@@ -13,33 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 
 
-interface NavLinkProps {
-  icon: React.ReactNode;
-  label: string;
-  page: Page;
-  currentPage: Page;
-  onClick: (page: Page) => void;
-  badgeCount?: number;
-}
 
-const NavLink = ({ icon, label, page, currentPage, onClick, badgeCount }: NavLinkProps) => {
-  const isActive = currentPage === page;
-  return (
-    <Button
-      variant={isActive ? "secondary" : "ghost"}
-      className={`w-full justify-start ${isActive ? 'text-primary' : ''}`}
-      onClick={() => onClick(page)}
-    >
-      {icon}
-      <span className="ml-3">{label}</span>
-      {badgeCount && badgeCount > 0 && (
-        <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
-            {badgeCount > 9 ? '9+' : badgeCount}
-        </span>
-      )}
-    </Button>
-  );
-};
 
 const ChatIcon = ({ icon, className }: { icon: ChatIconType; className: string }) => {
     switch (icon) {
@@ -54,8 +30,10 @@ const ChatIcon = ({ icon, className }: { icon: ChatIconType; className: string }
 
 
 export const Sidebar = () => {
+    const router = useRouter();
+    const pathname = usePathname();
     const {
-        currentPage, setCurrentPage, isSidebarOpen, setIsSidebarOpen,
+        isSidebarOpen, setIsSidebarOpen,
         setIsChatOpen, chatIcon, logout
     } = useStore();
     const { conversations, users, setViewingProfileUsername } = useSocialStore();
@@ -71,11 +49,11 @@ export const Sidebar = () => {
         }, 0);
     }, [conversations, currentUser]);
 
-    const handleNavigation = (page: Page) => {
-        if (page === 'profile') {
+    const handleNavigation = (href: string) => {
+        if (href === '/profile') {
             setViewingProfileUsername(null);
         }
-        setCurrentPage(page);
+        router.push(href);
         if (window.innerWidth < 1024) { // Close sidebar on mobile after navigation
             setIsSidebarOpen(false);
         }
@@ -107,15 +85,96 @@ export const Sidebar = () => {
             </div>
             <nav className="flex-1 overflow-y-auto p-4 space-y-1">
                 <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Analysis</h3>
-                <NavLink icon={<Home className="w-5 h-5" />} label="Dashboard" page="dashboard" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<TrendingUp className="w-5 h-5" />} label="Signal Gen" page="signal-gen" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<Zap className="w-5 h-5" />} label="Scalping" page="scalping" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<Flame className="w-5 h-5" />} label="Memes Scalp" page="memes-scalp" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<Pencil className="w-5 h-5" />} label="Man Signal" page="manual-studio" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<ScanLine className="w-5 h-5" />} label="Screener" page="screener" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<Newspaper className="w-5 h-5" />} label="News" page="news" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<History className="w-5 h-5" />} label="AI Signal History" page="history" currentPage={currentPage} onClick={handleNavigation} />
-                <NavLink icon={<TestTube2 className="w-5 h-5" />} label="Simulation" page="simulation" currentPage={currentPage} onClick={handleNavigation} />
+                <Link href="/dashboard" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/dashboard' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/dashboard')}
+                    >
+                        <Home className="w-5 h-5" />
+                        <span className="ml-3">Dashboard</span>
+                    </Button>
+                </Link>
+                <Link href="/signal-gen" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/signal-gen' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/signal-gen')}
+                    >
+                        <TrendingUp className="w-5 h-5" />
+                        <span className="ml-3">Signal Gen</span>
+                    </Button>
+                </Link>
+                <Link href="/scalping" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/scalping' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/scalping')}
+                    >
+                        <Zap className="w-5 h-5" />
+                        <span className="ml-3">Scalping</span>
+                    </Button>
+                </Link>
+                <Link href="/memes-scalp" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/memes-scalp' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/memes-scalp')}
+                    >
+                        <Flame className="w-5 h-5" />
+                        <span className="ml-3">Memes Scalp</span>
+                    </Button>
+                </Link>
+                <Link href="/manual-studio" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/manual-studio' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/manual-studio')}
+                    >
+                        <Pencil className="w-5 h-5" />
+                        <span className="ml-3">Man Signal</span>
+                    </Button>
+                </Link>
+                <Link href="/screener" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/screener' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/screener')}
+                    >
+                        <ScanLine className="w-5 h-5" />
+                        <span className="ml-3">Screener</span>
+                    </Button>
+                </Link>
+                <Link href="/news" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/news' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/news')}
+                    >
+                        <Newspaper className="w-5 h-5" />
+                        <span className="ml-3">News</span>
+                    </Button>
+                </Link>
+                <Link href="/history" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/history' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/history')}
+                    >
+                        <History className="w-5 h-5" />
+                        <span className="ml-3">AI Signal History</span>
+                    </Button>
+                </Link>
+                <Link href="/simulation" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/simulation' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/simulation')}
+                    >
+                        <TestTube2 className="w-5 h-5" />
+                        <span className="ml-3">Simulation</span>
+                    </Button>
+                </Link>
 
                  <div className="pt-2">
                     <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Assistant</h3>
@@ -131,29 +190,133 @@ export const Sidebar = () => {
 
                 <div className="pt-2">
                     <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Logs</h3>
-                    <NavLink icon={<FileText className="w-5 h-5" />} label="Spot Log" page="spot-log" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<FileText className="w-5 h-5" />} label="Perp Log" page="perp-log" currentPage={currentPage} onClick={handleNavigation} />
+                    <Link href="/spot-log" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/spot-log' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/spot-log')}
+                    >
+                        <FileText className="w-5 h-5" />
+                        <span className="ml-3">Spot Log</span>
+                    </Button>
+                </Link>
+                    <Link href="/perp-log" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/perp-log' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/perp-log')}
+                    >
+                        <FileText className="w-5 h-5" />
+                        <span className="ml-3">Perp Log</span>
+                    </Button>
+                </Link>
                 </div>
 
                 <div className="pt-2">
                     <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Social</h3>
-                    <NavLink icon={<Compass className="w-5 h-5" />} label="Discover" page="discover" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<Mail className="w-5 h-5" />} label="Messages" page="messages" currentPage={currentPage} onClick={handleNavigation} badgeCount={unreadMessagesCount}/>
-                    <NavLink icon={<Layers className="w-5 h-5" />} label="Strategies" page="strategies" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<User className="w-5 h-5" />} label="Profile" page="profile" currentPage={currentPage} onClick={handleNavigation} />
+                    <Link href="/discover" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/discover' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/discover')}
+                    >
+                        <Compass className="w-5 h-5" />
+                        <span className="ml-3">Discover</span>
+                    </Button>
+                </Link>
+                    <Link href="/messages" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/messages' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/messages')}
+                    >
+                        <Mail className="w-5 h-5" />
+                        <span className="ml-3">Messages</span>
+                        {unreadMessagesCount > 0 && (
+                            <span className="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                                {unreadMessagesCount > 9 ? '9+' : unreadMessagesCount}
+                            </span>
+                        )}
+                    </Button>
+                </Link>
+                    <Link href="/strategies" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/strategies' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/strategies')}
+                    >
+                        <Layers className="w-5 h-5" />
+                        <span className="ml-3">Strategies</span>
+                    </Button>
+                </Link>
+                    <Link href="/profile" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/profile' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/profile')}
+                    >
+                        <User className="w-5 h-5" />
+                        <span className="ml-3">Profile</span>
+                    </Button>
+                </Link>
                 </div>
 
                 <div className="pt-2">
                     <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Tools</h3>
-                    <NavLink icon={<BarChartBig className="w-5 h-5" />} label="Analytics" page="analytics" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<Calculator className="w-5 h-5" />} label="Calculator" page="calculator" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<Shield className="w-5 h-5" />} label="Stablecoin Stash" page="stablecoin-stash" currentPage={currentPage} onClick={handleNavigation} />
-                    <NavLink icon={<Book className="w-5 h-5" />} label="Tutorials" page="tutorials" currentPage={currentPage} onClick={handleNavigation} />
+                    <Link href="/analytics" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/analytics' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/analytics')}
+                    >
+                        <BarChartBig className="w-5 h-5" />
+                        <span className="ml-3">Analytics</span>
+                    </Button>
+                </Link>
+                    <Link href="/calculator" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/calculator' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/calculator')}
+                    >
+                        <Calculator className="w-5 h-5" />
+                        <span className="ml-3">Calculator</span>
+                    </Button>
+                </Link>
+                    <Link href="/stablecoin-stash" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/stablecoin-stash' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/stablecoin-stash')}
+                    >
+                        <Shield className="w-5 h-5" />
+                        <span className="ml-3">Stablecoin Stash</span>
+                    </Button>
+                </Link>
+                    <Link href="/tutorials" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/tutorials' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/tutorials')}
+                    >
+                        <Book className="w-5 h-5" />
+                        <span className="ml-3">Tutorials</span>
+                    </Button>
+                </Link>
                 </div>
 
                 <div className="pt-2">
                     <h3 className="px-4 pt-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">System</h3>
-                    <NavLink icon={<Settings className="w-5 h-5" />} label="Settings" page="settings" currentPage={currentPage} onClick={handleNavigation} />
+                    <Link href="/settings" passHref legacyBehavior>
+                    <Button
+                        variant={pathname === '/settings' ? "secondary" : "ghost"}
+                        className="w-full justify-start"
+                        onClick={() => handleNavigation('/settings')}
+                    >
+                        <Settings className="w-5 h-5" />
+                        <span className="ml-3">Settings</span>
+                    </Button>
+                </Link>
                     <Button
                         variant="ghost"
                         className="w-full justify-start"

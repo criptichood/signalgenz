@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 import type { Page, UserParams, Signal, SavedSignal, AiModel, Timeframe, OrderBookUpdate, LiveTrade } from '@/types';
 import { generateScalpingSignal } from '@/services/geminiService';
 import { useLocalStorage } from './useLocalStorage';
@@ -21,9 +22,9 @@ export interface SignalGenerationState {
 }
 
 export function useSignalGenerator(
-    setCurrentPage: (page: Page) => void,
     audioAlertsEnabled: boolean
 ) {
+  const router = useRouter();
   const { setSignalHistory } = useHistoryStore();
   const signalMutation = useGenerateSignalMutation();
   const scalpCancellationRef = useRef(false);
@@ -100,7 +101,7 @@ export function useSignalGenerator(
   const triggerSignalGeneration = useCallback((params: Partial<UserParams>, options?: { navigate?: boolean }) => {
     const shouldNavigate = options?.navigate ?? true;
     if (shouldNavigate) {
-        setCurrentPage('signal-gen');
+        router.push('/signal-gen');
     }
     const newFormData = { ...signalGenFormDataFromStore, ...params };
     setSignalGenFormDataInStore(() => newFormData);
@@ -151,7 +152,7 @@ export function useSignalGenerator(
   const triggerScalpGeneration = useCallback((params: Partial<UserParams>, options?: { navigate?: boolean; extraData?: { orderBookData: OrderBookUpdate | null, liveTrades: LiveTrade[] } }) => {
     const shouldNavigate = options?.navigate ?? true;
     if (shouldNavigate) {
-        setCurrentPage('scalping');
+        router.push('/scalping');
     }
     const newFormData = { ...scalpingFormDataFromStore, ...params };
     setScalpingFormDataInStore(() => newFormData);

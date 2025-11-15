@@ -24,7 +24,6 @@ export default function ProfilePage({ onNavigateToProfile }: ProfilePageProps): 
         handleFollow, handleUnfollow, handleSaveProfile,
         handleCreatePost, handleDeletePost, handleLikePost, handleAddComment, handleLikeComment,
         handleOpenMessage: handleOpenMessageAction, handleRepost, handleUndoRepost, setPostToShare
-    // FIX: Correctly call the useSocialStore hook.
     } = useSocialStore();
 
     const { setCurrentPage } = useStore();
@@ -92,7 +91,6 @@ export default function ProfilePage({ onNavigateToProfile }: ProfilePageProps): 
                     onOpenFollowList={handleOpenFollowList}
                 />
                 
-                {/* FIX: Replaced incorrect 'defaultValue' prop with controlled 'value' and 'onValueChange' props. */}
                 <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as string)} className="w-full">
                     <TabsList className="grid w-full grid-cols-4 border-t border-gray-700 rounded-none">
                         <TabsTrigger value="posts"><MessageSquare className="w-4 h-4 mr-2"/>Posts</TabsTrigger>
